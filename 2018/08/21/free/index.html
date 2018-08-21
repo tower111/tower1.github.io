@@ -11,7 +11,7 @@
 
     <title>
         
-        
+        free - undefined
         
     </title>
 
@@ -65,7 +65,7 @@
                     <span>TAGS</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>ARCHIVES</span>
@@ -80,6 +80,10 @@
             
         </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
     
 </div>
 
@@ -106,35 +110,30 @@
         
 
 
-<!-- 归档列表 -->
+<div class="post-container">
+    <div class="post-title">
+        free
+    </div>
 
-<div class="archives-container">
-
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2018">
-                    <span class="tag-text">2018</span>
-                </span>
-    <ul>
+    <div class="post-meta">
+        <span class="attr">Post：<span>2018-08-21 17:07:04</span></span>
         
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>08-21</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2018/08/21/free/">
-                        <span>
-                            free
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>##关于free函数对堆的操作<br>释放堆的全部内容如下<br><img src="http://i4.bvimg.com/659021/ddd11f567342a352.png" alt=""></p>
+<p>Glibc内存管理中介绍了free的过程不过有一点他是这样说的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">判断 chunk 的大小和所处的位置,若 chunk_size &lt;= max_fast,并且 chunk 并不位于</span><br><span class="line">heap 的顶部,也就是说并不与 top chunk 相邻,则转到下一步,否则跳到第 6 步。</span><br><span class="line">(因为与 top chunk 相邻的小 chunk 也和 top chunk 进行合并,所以这里不仅需要</span><br><span class="line">判断大小,还需要判断相邻情况)</span><br></pre></td></tr></table></figure></p>
+<p>但是实际跟出来的对fast bin的操作有一些改动测试机是ubuntu16<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">add(0x100,&quot;A&quot;*0x10)</span><br><span class="line">add(0x70,&quot;B&quot;*0x21)</span><br><span class="line">delete(2)</span><br><span class="line">delete(1)</span><br><span class="line">gdb.attach(p)</span><br></pre></td></tr></table></figure></p>
+<p>跟出来的结果是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gef➤ heap chunks</span><br><span class="line">Chunk(addr=0x1ffd010, size=0x110, flags=PREV_INUSE)</span><br><span class="line">[0x0000000001ffd010 78 fb 34 36 78 7f 00 00 78 fb 34 36 78 7f 00 00 x.46x...x.46x...]</span><br><span class="line">Chunk(addr=0x1ffd120, size=0x80, flags=)</span><br><span class="line">[0x0000000001ffd120 00 00 00 00 00 00 00 00 42 42 42 42 42 42 42 42 ........BBBBBBBB]</span><br></pre></td></tr></table></figure></p>
+<p>可以看出来2个chunk都还在，0x70的chunk在free的时候并没有跟topchunk进行合并。</p>
+
         
-
-    </ul>
-</div>
-
+        <div id="comment-container">
+        </div>
+    </div>
 </div>
     </div>
 </div>
@@ -174,7 +173,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = ""
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
