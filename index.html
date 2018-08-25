@@ -116,8 +116,22 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/堆溢出-house-of-einherjar/" style="font-size: 10px;">堆溢出,house of einherjar</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -164,12 +178,14 @@
 <hr>
 <p><strong>漏洞和数据结构</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">if ( v13 &gt; 0 &amp;&amp; v13 &lt;= 4 )</span><br><span class="line">    &#123;</span><br><span class="line">      if ( *(_QWORD *)&amp;tinypad[16 * (v13 - 1 + 16LL)] )</span><br><span class="line">      &#123;</span><br><span class="line">        c = &apos;0&apos;;</span><br><span class="line">        strcpy(tinypad, *(const char **)&amp;tinypad[16 * (v13 - 1 + 16LL) + 8]);</span><br><span class="line">        while ( toupper(c) != &apos;Y&apos; )</span><br><span class="line">        &#123;</span><br><span class="line">          write_n((__int64)&quot;CONTENT: &quot;, 9LL);</span><br><span class="line">          v8 = strlen(tinypad);</span><br><span class="line">          writeln((__int64)tinypad, v8);</span><br><span class="line">          write_n((__int64)&quot;(CONTENT)&gt;&gt;&gt; &quot;, 13LL);</span><br><span class="line">          v9 = strlen(*(const char **)&amp;tinypad[16 * (v13 - 1 + 16LL) + 8]);</span><br><span class="line">          read_until((__int64)tinypad, v9, 0xAu);</span><br><span class="line">          writeln((__int64)&quot;Is it OK?&quot;, 9LL);</span><br><span class="line">          write_n((__int64)&quot;(Y/n)&gt;&gt;&gt; &quot;, 9LL);</span><br><span class="line">          read_until((__int64)&amp;c, 1uLL, 0xAu);</span><br><span class="line">        &#125;</span><br><span class="line">        strcpy(*(char **)&amp;tinypad[16 * (v13 - 1 + 16LL) + 8], tinypad);</span><br><span class="line">        v3 = 8LL;</span><br></pre></td></tr></table></figure></p>
 <p>在bss段偏移0x100位置处会放入size和chunk的地址，chunk里面存放content。<br>bss段的开始存放的是edit函数缓冲的数据。</p>
-<p>1.函数自定义的read含食宿存在off by one 漏洞。这个代码比较麻烦可以手动测试得出结论。可以复写每个chunk的prive_size和prive_inuse字段，在edit长度为256的时候会覆盖掉memo1的size字段（只能设置为0）</p>
+<p>1.函数自定义的read函数存在off by one 漏洞。这个代码比较麻烦可以手动测试得出结论。可以复写每个chunk的prive_size和prive_inuse字段，在edit长度为256的时候会覆盖掉memo1的size字段（只能设置为0）</p>
 <p>2.在free之后只是把size置0并没有把指针清零，存在UAF漏洞。</p>
 <hr>
 <p><strong>利用思路</strong></p>
-<p>原始的off by one利用思路需要2层chunk，这里只有一层显然不行（参考<a href="https://ctf-wiki.github.io/ctf-wiki/pwn/heap/off_by_one/" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/pwn/heap/off_by_one/</a>）。</p>
+<p>只有off by one利用需要2层chunk，这里只有一层显然不行（参考<a href="https://ctf-wiki.github.io/ctf-wiki/pwn/heap/off_by_one/" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/pwn/heap/off_by_one/</a>）。</p>
 <p>unlink需要堆溢出，完整操作下一个堆，这里只利用unlink也不行（可以用double free 或者其他方法获取到一个堆的完整控制权，再用unlink应该是可以的）。</p>
+<p>double free：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">if ( v8 == &apos;D&apos; )</span><br><span class="line"> &#123;</span><br><span class="line">   write_n(&quot;(INDEX)&gt;&gt;&gt; &quot;, 11LL, v9);</span><br><span class="line">   v20 = read_int();</span><br><span class="line">   if ( v20 &gt; 0 &amp;&amp; v20 &lt;= 4 )</span><br><span class="line">   &#123;</span><br><span class="line">     if ( *(_QWORD *)&amp;tinypad[16 * (v20 - 1 + 16LL)] )</span><br><span class="line">     &#123;</span><br><span class="line">       free(*(void **)&amp;tinypad[16 * (v20 - 1 + 16LL) + 8]);</span><br><span class="line">       *(_QWORD *)&amp;tinypad[16 * (v20 - 1 + 16LL)] = 0LL;</span><br><span class="line">       writeln(&quot;\nDeleted.&quot;, 9LL);</span><br><span class="line">     &#125;</span><br><span class="line">     else</span><br><span class="line">     &#123;</span><br><span class="line">       writeln(&quot;Not used&quot;, 8LL);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里对free函数做了限制，不能double free</p>
 <p>house of einherjar是什么参考<a href="https://ctf-wiki.github.io/ctf-wiki/pwn/heap/house_of_einherjar/" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/pwn/heap/house_of_einherjar/</a></p>
 <p>house of einherjar需要：能够修改inuse位，申请到的空间内容两个单位可以控制。（对于进行unlink的chunk并不会检查自己的size部分）<br>利用house of einherjar 申请到bss段的空间,修改memo数组，实现复写hook_malloc或者是修改返回地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v9 = strlen(*(const char **)&amp;tinypad[16 * (v13 - 1 + 16LL) + 8]);</span><br><span class="line"> read_until((__int64)tinypad, v9, 0xAu);</span><br></pre></td></tr></table></figure></p>
 <p>由于会读取原长度然后输入，malloc_hook初始为0所以不能用就只能用第二种方案了。</p>
@@ -207,9 +223,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/" data-id="cjl9hejrb0000dvl33uy5f7tb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/" data-id="cjl9hyzyw0000lml365t38g28" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a></li></ul>
+
     </footer>
   </div>
   
@@ -251,7 +269,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/21/通用gatget/" data-id="cjl9hejrk0004dvl3adodyc4q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/21/通用gatget/" data-id="cjl9hwe3w0003g8l3em59zvsc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -294,7 +312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/21/rop32/" data-id="cjl9hejri0002dvl3dnweotm0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/21/rop32/" data-id="cjl9hwe3t0001g8l397n0y8hh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -331,11 +349,14 @@
 <p>但是实际跟出来的对fast bin的操作有一些改动测试机是ubuntu16<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">add(0x100,&quot;A&quot;*0x10)</span><br><span class="line">add(0x70,&quot;B&quot;*0x21)</span><br><span class="line">delete(2)</span><br><span class="line">delete(1)</span><br><span class="line">gdb.attach(p)</span><br></pre></td></tr></table></figure></p>
 <p>跟出来的结果是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gef➤ heap chunks</span><br><span class="line">Chunk(addr=0x1ffd010, size=0x110, flags=PREV_INUSE)</span><br><span class="line">[0x0000000001ffd010 78 fb 34 36 78 7f 00 00 78 fb 34 36 78 7f 00 00 x.46x...x.46x...]</span><br><span class="line">Chunk(addr=0x1ffd120, size=0x80, flags=)</span><br><span class="line">[0x0000000001ffd120 00 00 00 00 00 00 00 00 42 42 42 42 42 42 42 42 ........BBBBBBBB]</span><br></pre></td></tr></table></figure></p>
 <p>可以看出来2个chunk都还在，0x70的chunk在free的时候并没有跟topchunk进行合并。</p>
+<p>这里面有一个问题如果是这种结构的chunk</p>
+<p><img src="http://i4.bvimg.com/659021/c46c1f4ed3c6aa62.png" alt=""></p>
+<p>当free small chunk的时候fast chunk和small chunk是会合并的。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/21/free/" data-id="cjl9hejrg0001dvl3o7qg3gy1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/21/free/" data-id="cjl9hwe3o0000g8l36pf615uc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -382,7 +403,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/27/rop64/" data-id="cjl9hejrj0003dvl3vqh5zvc0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/27/rop64/" data-id="cjl9hwe3v0002g8l3d7ycmdc2" class="article-share-link">Share</a>
       
       
     </footer>
