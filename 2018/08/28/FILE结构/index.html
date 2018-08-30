@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>FILE结构 | Tower</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="测试栗子：blindstdout指针指向的数据12345678910111213141516pwndbg&amp;gt; x /50xg 0x00007fdc0a6606200x7fdc0a660620 &amp;lt;_IO_2_1_stdout_&amp;gt;:	0x00000000fbad2887	0x00007fdc0a6606a30x7fdc0a660630 &amp;lt;_IO_2_1_stdout_+16&amp;gt">
+<meta name="keywords" content="基础知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FILE结构">
+<meta property="og:url" content="http://yoursite.com/2018/08/28/FILE结构/index.html">
+<meta property="og:site_name" content="Tower">
+<meta property="og:description" content="测试栗子：blindstdout指针指向的数据12345678910111213141516pwndbg&amp;gt; x /50xg 0x00007fdc0a6606200x7fdc0a660620 &amp;lt;_IO_2_1_stdout_&amp;gt;:	0x00000000fbad2887	0x00007fdc0a6606a30x7fdc0a660630 &amp;lt;_IO_2_1_stdout_+16&amp;gt">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-28T09:21:41.687Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FILE结构">
+<meta name="twitter:description" content="测试栗子：blindstdout指针指向的数据12345678910111213141516pwndbg&amp;gt; x /50xg 0x00007fdc0a6606200x7fdc0a660620 &amp;lt;_IO_2_1_stdout_&amp;gt;:	0x00000000fbad2887	0x00007fdc0a6606a30x7fdc0a660630 &amp;lt;_IO_2_1_stdout_+16&amp;gt">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> -->
+  <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css"> -->
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+  <link href='//fonts.useso.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <a href="/" class="logo">Tower</a>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/index.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        </div>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        
+        
+          <a id="nav-github-link" class="nav-icon" href="https://tower111.github.io/" title="Fork me on GitHub"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <nav id="mobile-nav" class="off">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/index.html" class="mobile-nav-link">About</a>
+  
+  <div id="search-form-wrap-mobile">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+  </div>
+</nav>
+      <div class="outer">
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/30/ISG-babynote/">ISG(babynote)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/28/FILE结构/">FILE结构</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/26/极客巅峰/">极客巅峰</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/">House Of Einherjar(2016 Seccon tinypad)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/21/通用gatget/">通用gatget</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/double-free-unlink/" style="font-size: 10px;">double free,unlink</a> <a href="/tags/基础知识/" style="font-size: 10px;">基础知识</a> <a href="/tags/堆溢出-house-of-einherjar/" style="font-size: 10px;">堆溢出,house of einherjar</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://github.com/tower111/tower111.github.io.git">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+        <section id="main"><article id="post-FILE结构" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/28/FILE结构/" class="article-date">
+  <time datetime="2018-08-28T09:08:28.000Z" itemprop="datePublished">2018-08-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      FILE结构
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>测试栗子：blind<br>stdout指针指向的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pwndbg&gt; x /50xg 0x00007fdc0a660620</span><br><span class="line">0x7fdc0a660620 &lt;_IO_2_1_stdout_&gt;:	0x00000000fbad2887	0x00007fdc0a6606a3</span><br><span class="line">0x7fdc0a660630 &lt;_IO_2_1_stdout_+16&gt;:	0x00007fdc0a6606a3	0x00007fdc0a6606a3</span><br><span class="line">0x7fdc0a660640 &lt;_IO_2_1_stdout_+32&gt;:	0x00007fdc0a6606a3	0x00007fdc0a6606a3</span><br><span class="line">0x7fdc0a660650 &lt;_IO_2_1_stdout_+48&gt;:	0x00007fdc0a6606a3	0x00007fdc0a6606a3</span><br><span class="line">0x7fdc0a660660 &lt;_IO_2_1_stdout_+64&gt;:	0x00007fdc0a6606a4	0x0000000000000000</span><br><span class="line">0x7fdc0a660670 &lt;_IO_2_1_stdout_+80&gt;:	0x0000000000000000	0x0000000000000000</span><br><span class="line">0x7fdc0a660680 &lt;_IO_2_1_stdout_+96&gt;:	0x0000000000000000	0x00007fdc0a65f8e0</span><br><span class="line">0x7fdc0a660690 &lt;_IO_2_1_stdout_+112&gt;:	0x0000000000000001	0xffffffffffffffff</span><br><span class="line">0x7fdc0a6606a0 &lt;_IO_2_1_stdout_+128&gt;:	0x000000000a000000	0x00007fdc0a661780</span><br><span class="line">0x7fdc0a6606b0 &lt;_IO_2_1_stdout_+144&gt;:	0xffffffffffffffff	0x0000000000000000</span><br><span class="line">0x7fdc0a6606c0 &lt;_IO_2_1_stdout_+160&gt;:	0x00007fdc0a65f7a0	0x0000000000000000</span><br><span class="line">0x7fdc0a6606d0 &lt;_IO_2_1_stdout_+176&gt;:	0x0000000000000000	0x0000000000000000</span><br><span class="line">0x7fdc0a6606e0 &lt;_IO_2_1_stdout_+192&gt;:	0x00000000ffffffff	0x0000000000000000</span><br><span class="line">0x7fdc0a6606f0 &lt;_IO_2_1_stdout_+208&gt;:	0x0000000000000000	0x00007fdc0a65e6e0</span><br></pre></td></tr></table></figure></p>
+<p>这里是file结构（stdout被命名为IO_2_1_stdout_）<br>FLIE结构被封装为_IO_FILE_plus<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct _IO_FILE_plus</span><br><span class="line">&#123;</span><br><span class="line">    _IO_FILE    file;</span><br><span class="line">    IO_jump_t   *vtable;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; print _IO_2_1_stdout_</span><br><span class="line">$1 = &#123;</span><br><span class="line">  file = &#123;</span><br><span class="line">    _flags = 0xfbad2887, </span><br><span class="line">    _IO_read_ptr = 0x7fdc0a6606a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, </span><br><span class="line">    _IO_read_end = 0x7fdc0a6606a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, </span><br><span class="line">    _IO_read_base = 0x7fdc0a6606a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, </span><br><span class="line">    _IO_write_base = 0x7fdc0a6606a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, </span><br><span class="line">    _IO_write_ptr = 0x7fdc0a6606a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, </span><br><span class="line">    _IO_write_end = 0x7fdc0a6606a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, </span><br><span class="line">    _IO_buf_base = 0x7fdc0a6606a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, </span><br><span class="line">    _IO_buf_end = 0x7fdc0a6606a4 &lt;_IO_2_1_stdout_+132&gt; &quot;&quot;, </span><br><span class="line">    _IO_save_base = 0x0, </span><br><span class="line">    _IO_backup_base = 0x0, </span><br><span class="line">    _IO_save_end = 0x0, </span><br><span class="line">    _markers = 0x0, </span><br><span class="line">    _chain = 0x7fdc0a65f8e0 &lt;_IO_2_1_stdin_&gt;, </span><br><span class="line">    _fileno = 0x1, </span><br><span class="line">    _flags2 = 0x0, </span><br><span class="line">    _old_offset = 0xffffffffffffffff, </span><br><span class="line">    _cur_column = 0x0, </span><br><span class="line">    _vtable_offset = 0x0, </span><br><span class="line">    _shortbuf = &quot;\n&quot;, </span><br><span class="line">    _lock = 0x7fdc0a661780 &lt;_IO_stdfile_1_lock&gt;, </span><br><span class="line">    _offset = 0xffffffffffffffff, </span><br><span class="line">    _codecvt = 0x0, </span><br><span class="line">    _wide_data = 0x7fdc0a65f7a0 &lt;_IO_wide_data_1&gt;, </span><br><span class="line">    _freeres_list = 0x0, </span><br><span class="line">    _freeres_buf = 0x0, </span><br><span class="line">    __pad5 = 0x0, </span><br><span class="line">    _mode = 0xffffffff, </span><br><span class="line">    _unused2 = &apos;\000&apos; &lt;repeats 19 times&gt;</span><br><span class="line">  &#125;, </span><br><span class="line">  vtable = 0x7fdc0a65e6e0 &lt;_IO_file_jumps&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要关注<code>vtable = 0x7fdc0a65e6e0 &lt;_IO_file_jumps&gt;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; print _IO_file_jumps</span><br><span class="line">$2 = &#123;</span><br><span class="line">  __dummy = 0x0, </span><br><span class="line">  __dummy2 = 0x0, </span><br><span class="line">  __finish = 0x7fdc0a3149c0 &lt;_IO_new_file_finish&gt;, </span><br><span class="line">  __overflow = 0x7fdc0a315730 &lt;_IO_new_file_overflow&gt;, </span><br><span class="line">  __underflow = 0x7fdc0a3154a0 &lt;_IO_new_file_underflow&gt;, </span><br><span class="line">  __uflow = 0x7fdc0a316600 &lt;__GI__IO_default_uflow&gt;, </span><br><span class="line">  __pbackfail = 0x7fdc0a317980 &lt;__GI__IO_default_pbackfail&gt;, </span><br><span class="line">  __xsputn = 0x7fdc0a3141e0 &lt;_IO_new_file_xsputn&gt;, </span><br><span class="line">  __xsgetn = 0x7fdc0a313ec0 &lt;__GI__IO_file_xsgetn&gt;, </span><br><span class="line">  __seekoff = 0x7fdc0a3134c0 &lt;_IO_new_file_seekoff&gt;, </span><br><span class="line">  __seekpos = 0x7fdc0a316a00 &lt;_IO_default_seekpos&gt;, </span><br><span class="line">  __setbuf = 0x7fdc0a313430 &lt;_IO_new_file_setbuf&gt;, </span><br><span class="line">  __sync = 0x7fdc0a313370 &lt;_IO_new_file_sync&gt;, </span><br><span class="line">  __doallocate = 0x7fdc0a308180 &lt;__GI__IO_file_doallocate&gt;, </span><br><span class="line">  __read = 0x7fdc0a3141a0 &lt;__GI__IO_file_read&gt;, </span><br><span class="line">  __write = 0x7fdc0a313b70 &lt;_IO_new_file_write&gt;, </span><br><span class="line">  __seek = 0x7fdc0a313970 &lt;__GI__IO_file_seek&gt;, </span><br><span class="line">  __close = 0x7fdc0a313340 &lt;__GI__IO_file_close&gt;, </span><br><span class="line">  __stat = 0x7fdc0a313b60 &lt;__GI__IO_file_stat&gt;, </span><br><span class="line">  __showmanyc = 0x7fdc0a317af0 &lt;_IO_default_showmanyc&gt;, </span><br><span class="line">  __imbue = 0x7fdc0a317b00 &lt;_IO_default_imbue&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>fwrite<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">size_t fwrite(const void* buffer, size_t size, size_t count, FILE* stream);</span><br></pre></td></tr></table></figure></p>
+<p>fwrite的代码位于/libio/iofwrite.c中，函数名为_IO_fwrite。在_IO_fwrite中主要是调用_IO_XSPUTN来实现写入的功能。<br>_IO_XSPUTN对应的默认函数_IO_new_file_xsputn。<br>_IO_new_file_xsputn中会调用_IO_OVERFLOW。_IO_OVERFLOW默认对应的函数是_IO_new_file_overflow。</p>
+<p>在_IO_new_file_overflow内部最终会调用系统接口write函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FILE *fopen(char *filename, *type);</span><br></pre></td></tr></table></figure>
+<p>使用malloc分配FILE结构<br>设置FILE结构的vtable<br>初始化分配的FILE结构<br>将初始化的FILE结构链入FILE结构链表中<br>调用系统调用打开文件</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/28/FILE结构/" data-id="cjlgo9yzy0000asl3pycnentu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/30/ISG-babynote/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ISG(babynote)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/26/极客巅峰/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">极客巅峰</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="/" class="logo">Tower</a>
+      &copy; 2018 tower<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollLoading.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
