@@ -3,18 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2018 | Tower</title>
+  <title>hose of lore | Tower</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="鱼跃此时海">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tower">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="参考：https://ctf-wiki.github.io/ctf-wiki/pwn/heap/house_of_lore/ 申请内存块在small bin范围（从unsort bin中申请）主要注意2点：1.if ((victim = last(bin)) != bin)检验初始化，想要实现攻击需要向已经初始化的victim中写入fd。2.if (__glibc_unlikely(bck-&amp;gt">
+<meta name="keywords" content="堆攻击模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hose of lore">
+<meta property="og:url" content="http://yoursite.com/2018/09/01/hose-of-lore/index.html">
 <meta property="og:site_name" content="Tower">
-<meta property="og:description" content="鱼跃此时海">
+<meta property="og:description" content="参考：https://ctf-wiki.github.io/ctf-wiki/pwn/heap/house_of_lore/ 申请内存块在small bin范围（从unsort bin中申请）主要注意2点：1.if ((victim = last(bin)) != bin)检验初始化，想要实现攻击需要向已经初始化的victim中写入fd。2.if (__glibc_unlikely(bck-&amp;gt">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://i1.bvimg.com/659021/83ddc80adeda487b.png">
+<meta property="og:updated_time" content="2018-09-01T10:58:23.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tower">
-<meta name="twitter:description" content="鱼跃此时海">
+<meta name="twitter:title" content="hose of lore">
+<meta name="twitter:description" content="参考：https://ctf-wiki.github.io/ctf-wiki/pwn/heap/house_of_lore/ 申请内存块在small bin范围（从unsort bin中申请）主要注意2点：1.if ((victim = last(bin)) != bin)检验初始化，想要实现攻击需要向已经初始化的victim中写入fd。2.if (__glibc_unlikely(bck-&amp;gt">
+<meta name="twitter:image" content="http://i1.bvimg.com/659021/83ddc80adeda487b.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -150,215 +154,57 @@
   
 </aside>
         
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/09/01/hose-of-lore/" class="archive-article-date">
-  <time datetime="2018-09-01T10:50:49.000Z" itemprop="datePublished">9月 1</time>
+        <section id="main"><article id="post-hose-of-lore" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/01/hose-of-lore/" class="article-date">
+  <time datetime="2018-09-01T10:50:49.000Z" itemprop="datePublished">2018-09-01</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/01/hose-of-lore/">hose of lore</a>
+    <h1 class="article-title" itemprop="name">
+      hose of lore
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/31/堆中获取地址和劫持执行流的方法/" class="archive-article-date">
-  <time datetime="2018-08-31T01:45:55.000Z" itemprop="datePublished">8月 31</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/31/堆中获取地址和劫持执行流的方法/">堆中获取地址和劫持执行流的方法</a>
-    </h1>
-  
+        <p>参考：<a href="https://ctf-wiki.github.io/ctf-wiki/pwn/heap/house_of_lore/" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/pwn/heap/house_of_lore/</a></p>
+<p>申请内存块在small bin范围（从unsort bin中申请）<br>主要注意2点：<br>1.<code>if ((victim = last(bin)) != bin)</code>检验初始化，想要实现攻击需要向已经初始化的victim中写入fd。<br>2.<code>if (__glibc_unlikely(bck-&gt;fd != victim))</code>glibc会首先取出vitctim_chunk的下一个chunk(victim_back)检查victim_back-&gt;fd==victim_chunk。</p>
+<p><img src="http://i1.bvimg.com/659021/83ddc80adeda487b.png" alt="攻击图解"></p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/30/ISG-babynote/" class="archive-article-date">
-  <time datetime="2018-08-30T14:00:01.000Z" itemprop="datePublished">8月 30</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/30/ISG-babynote/">ISG(babynote)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/28/FILE结构/" class="archive-article-date">
-  <time datetime="2018-08-28T09:08:28.000Z" itemprop="datePublished">8月 28</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/01/hose-of-lore/" data-id="cjljbdkm20005dql3nrbr8qhs" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/28/FILE结构/">FILE结构</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/26/网鼎杯-教育/" class="archive-article-date">
-  <time datetime="2018-08-26T10:03:53.000Z" itemprop="datePublished">8月 26</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/26/网鼎杯-教育/">网鼎杯-教育</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/堆攻击模型/">堆攻击模型</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/31/堆中获取地址和劫持执行流的方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">堆中获取地址和劫持执行流的方法</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/26/极客巅峰/" class="archive-article-date">
-  <time datetime="2018-08-26T08:34:12.000Z" itemprop="datePublished">8月 26</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/26/极客巅峰/">极客巅峰</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/" class="archive-article-date">
-  <time datetime="2018-08-23T09:39:18.000Z" itemprop="datePublished">8月 23</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/">House Of Einherjar(2016 Seccon tinypad)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/21/通用gatget/" class="archive-article-date">
-  <time datetime="2018-08-21T10:16:04.000Z" itemprop="datePublished">8月 21</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/21/通用gatget/">通用gatget</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/21/rop32/" class="archive-article-date">
-  <time datetime="2018-08-21T10:13:05.000Z" itemprop="datePublished">8月 21</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/21/rop32/">rop32</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/21/free/" class="archive-article-date">
-  <time datetime="2018-08-21T09:07:04.000Z" itemprop="datePublished">8月 21</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/21/free/">free</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-  </nav>
 </section>
       </div>
       <footer id="footer">
