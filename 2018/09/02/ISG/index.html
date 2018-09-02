@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ISG | Tower</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="题目链接https://github.com/tower111/softwarejunkcode 查看check函数 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748pwndbg&amp;gt; disassemble checkDump of assembler code for">
+<meta name="keywords" content="ctf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ISG">
+<meta property="og:url" content="http://yoursite.com/2018/09/02/ISG/index.html">
+<meta property="og:site_name" content="Tower">
+<meta property="og:description" content="题目链接https://github.com/tower111/softwarejunkcode 查看check函数 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748pwndbg&amp;gt; disassemble checkDump of assembler code for">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-02T03:41:12.490Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ISG">
+<meta name="twitter:description" content="题目链接https://github.com/tower111/softwarejunkcode 查看check函数 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748pwndbg&amp;gt; disassemble checkDump of assembler code for">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> -->
+  <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css"> -->
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+  <link href='//fonts.useso.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <a href="/" class="logo">Tower</a>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/index.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        </div>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        
+        
+          <a id="nav-github-link" class="nav-icon" href="https://tower111.github.io/" title="Fork me on GitHub"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <nav id="mobile-nav" class="off">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/index.html" class="mobile-nav-link">About</a>
+  
+  <div id="search-form-wrap-mobile">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+  </div>
+</nav>
+      <div class="outer">
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/09/02/ISG/">ISG</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/01/hose-of-lore/">hose of lore</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/31/堆中获取地址和劫持执行流的方法/">堆中获取地址和劫持执行流的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/30/ISG-babynote/">ISG(babynote)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/28/FILE结构/">FILE结构</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆攻击模型/">堆攻击模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧，堆溢出，总结/">技巧，堆溢出，总结</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/tags/double-free-unlink/" style="font-size: 10px;">double free,unlink</a> <a href="/tags/基础知识/" style="font-size: 10px;">基础知识</a> <a href="/tags/堆攻击模型/" style="font-size: 10px;">堆攻击模型</a> <a href="/tags/堆溢出-house-of-einherjar/" style="font-size: 10px;">堆溢出,house of einherjar</a> <a href="/tags/技巧，堆溢出，总结/" style="font-size: 10px;">技巧，堆溢出，总结</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://github.com/tower111/tower111.github.io.git">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+        <section id="main"><article id="post-ISG" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/02/ISG/" class="article-date">
+  <time datetime="2018-09-02T02:07:24.000Z" itemprop="datePublished">2018-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ISG
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>题目链接<br><a href="https://github.com/tower111/software" target="_blank" rel="noopener">https://github.com/tower111/software</a><br><strong>junkcode</strong></p>
+<p>查看check函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; disassemble check</span><br><span class="line">Dump of assembler code for function check:</span><br><span class="line">   0x080484fb &lt;+0&gt;:	push   ebp</span><br><span class="line">   0x080484fc &lt;+1&gt;:	mov    ebp,esp</span><br><span class="line">   0x080484fe &lt;+3&gt;:	sub    esp,0x18</span><br><span class="line">   0x08048501 &lt;+6&gt;:	mov    eax,ds:0x804a02c</span><br><span class="line">   0x08048506 &lt;+11&gt;:	sub    esp,0xc</span><br><span class="line">   0x08048509 &lt;+14&gt;:	push   eax</span><br><span class="line">   0x0804850a &lt;+15&gt;:	call   0x80483d0 &lt;strlen@plt&gt;</span><br><span class="line">   0x0804850f &lt;+20&gt;:	add    esp,0x10</span><br><span class="line">   0x08048512 &lt;+23&gt;:	mov    DWORD PTR [ebp-0xc],eax</span><br><span class="line">   0x08048515 &lt;+26&gt;:	sub    esp,0xc</span><br><span class="line">   0x08048518 &lt;+29&gt;:	push   DWORD PTR [ebp+0x8]</span><br><span class="line">   0x0804851b &lt;+32&gt;:	call   0x80483d0 &lt;strlen@plt&gt;</span><br><span class="line">   0x08048520 &lt;+37&gt;:	add    esp,0x10</span><br><span class="line">   0x08048523 &lt;+40&gt;:	mov    edx,eax</span><br><span class="line">   0x08048525 &lt;+42&gt;:	mov    eax,DWORD PTR [ebp-0xc]</span><br><span class="line">   0x08048528 &lt;+45&gt;:	cmp    edx,eax              #这里校验长度</span><br><span class="line">   0x0804852a &lt;+47&gt;:	jae    0x8048533 &lt;check+56&gt;</span><br><span class="line">   0x0804852c &lt;+49&gt;:	mov    eax,0x0</span><br><span class="line">   0x08048531 &lt;+54&gt;:	jmp    0x8048581 &lt;check+134&gt;</span><br><span class="line">   0x08048533 &lt;+56&gt;:	mov    DWORD PTR [ebp-0x10],0x0</span><br><span class="line">   0x0804853a &lt;+63&gt;:	jmp    0x8048574 &lt;check+121&gt;</span><br><span class="line">   0x0804853c &lt;+65&gt;:	mov    edx,DWORD PTR [ebp-0x10]</span><br><span class="line">   0x0804853f &lt;+68&gt;:	mov    eax,DWORD PTR [ebp+0x8]</span><br><span class="line">   0x08048542 &lt;+71&gt;:	add    eax,edx</span><br><span class="line">=&gt; 0x08048544 &lt;+73&gt;:	sub    eax,0x158b08b6</span><br><span class="line">   0x08048549 &lt;+78&gt;:	sub    al,0xa0</span><br><span class="line">   0x0804854b &lt;+80&gt;:	add    al,0x8</span><br><span class="line">   0x0804854d &lt;+82&gt;:	mov    eax,DWORD PTR [ebp-0x10]</span><br><span class="line">   0x08048550 &lt;+85&gt;:	add    eax,edx</span><br><span class="line">   0x08048552 &lt;+87&gt;:	movzx  eax,BYTE PTR [eax]</span><br><span class="line">   0x08048555 &lt;+90&gt;:	xor    ecx,eax</span><br><span class="line">   0x08048557 &lt;+92&gt;:	mov    edx,DWORD PTR ds:0x804a030</span><br><span class="line">   0x0804855d &lt;+98&gt;:	mov    eax,DWORD PTR [ebp-0x10]</span><br><span class="line">   0x08048560 &lt;+101&gt;:	add    eax,edx</span><br><span class="line">   0x08048562 &lt;+103&gt;:	movzx  eax,BYTE PTR [eax]</span><br><span class="line">   0x08048565 &lt;+106&gt;:	cmp    cl,al                                #这里进行字符校验</span><br><span class="line">   0x08048567 &lt;+108&gt;:	je     0x8048570 &lt;check+117&gt;</span><br><span class="line">   0x08048569 &lt;+110&gt;:	mov    eax,0x0</span><br><span class="line">   0x0804856e &lt;+115&gt;:	jmp    0x8048581 &lt;check+134&gt;</span><br><span class="line">   0x08048570 &lt;+117&gt;:	add    DWORD PTR [ebp-0x10],0x1</span><br><span class="line">   0x08048574 &lt;+121&gt;:	mov    eax,DWORD PTR [ebp-0x10]</span><br><span class="line">   0x08048577 &lt;+124&gt;:	cmp    eax,DWORD PTR [ebp-0xc]</span><br><span class="line">   0x0804857a &lt;+127&gt;:	jl     0x804853c &lt;check+65&gt;</span><br><span class="line">   0x0804857c &lt;+129&gt;:	mov    eax,0x1</span><br><span class="line">   0x08048581 &lt;+134&gt;:	leave  </span><br><span class="line">   0x08048582 &lt;+135&gt;:	ret</span><br></pre></td></tr></table></figure>
+<p>断在长度比较处确定字符长度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EAX  0x17</span><br><span class="line">EBX  0x0</span><br><span class="line">ECX  0x320c</span><br><span class="line">EDX  0x8</span><br></pre></td></tr></table></figure></p>
+<p>0x17长度为23</p>
+<p>接下来查看al和cl的值<br>先找al<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   0x08048557 &lt;+92&gt;:	mov    edx,DWORD PTR ds:0x804a030</span><br><span class="line">   0x0804855d &lt;+98&gt;:	mov    eax,DWORD PTR [ebp-0x10]</span><br><span class="line">=&gt; 0x08048560 &lt;+101&gt;:	and    edx,eax</span><br><span class="line">   0x08048562 &lt;+103&gt;:	movzx  eax,BYTE PTR [eax]</span><br><span class="line">   0x08048565 &lt;+106&gt;:	cmp    cl,al</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> EAX  0x0</span><br><span class="line"> EBX  0x0</span><br><span class="line"> ECX  0xbe</span><br><span class="line"> EDX  0x80486e8 ◂— xchg   eax, esi /* 0xd8ca8b96 */</span><br><span class="line"> EDI  0x0</span><br><span class="line"> ESI  0xf7fa7000 (_GLOBAL_OFFSET_TABLE_) ◂— 0x1d7d6c</span><br><span class="line"> EBP  0xffffce18 —▸ 0xffffce78 ◂— 0x0</span><br><span class="line"> ESP  0xffffce00 —▸ 0xffffce78 ◂— 0x0</span><br><span class="line"> EIP  0x8048560 (check+101) ◂— and    edx, eax /* 0xb60fd023 */</span><br><span class="line">──────────────────────────────────────────────────────────────────────────────────────────[ DISASM ]──────────────────────────────────────────────────────────────────────────────────────────</span><br><span class="line"> ► 0x8048560 &lt;check+101&gt;    and    edx, eax</span><br></pre></td></tr></table></figure>
+<p>eax是计数器，edx是基地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x /50xb $edx</span><br><span class="line">0x80486e8:	0x96	0x8b	0xca	0xd8	0x72	0xf9	0xe8	0xc0</span><br><span class="line">0x80486f0:	0xf7	0x0d	0x46	0x40	0x29	0x42	0xa2	0x9f</span><br><span class="line">0x80486f8:	0x3e	0x2c	0x34	0x71	0xb2	0x9e	0xda	0x00</span><br><span class="line">0x8048700:	0x67	0x65	0x74	0x20	0x6d	0x65	0x20	0x66</span><br><span class="line">0x8048708:	0x6c	0x61	0x67	0x3a	0x00	0x47	0x4f	0x4f</span><br><span class="line">0x8048710:	0x44	0x00	0x42	0x41	0x44	0x00	0x00	0x00</span><br><span class="line">0x8048718:	0x01	0x1b</span><br></pre></td></tr></table></figure></p>
+<p>前32位就是al<br>cl跟al的操作方法类似<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0x08048547 &lt;+76&gt;:	mov    edx,DWORD PTR ds:0x804a02c</span><br><span class="line">0x0804854d &lt;+82&gt;:	mov    eax,DWORD PTR [ebp-0x10]</span><br><span class="line">0x08048550 &lt;+85&gt;:	add    eax,edx</span><br><span class="line">0x08048552 &lt;+87&gt;:	movzx  eax,BYTE PTR [eax]</span><br><span class="line">0x08048555 &lt;+90&gt;:	xor    ecx,eax</span><br></pre></td></tr></table></figure></p>
+<p>可以猜测，这里的ecx是输入的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x /xw 0x804a02c</span><br><span class="line">0x804a02c &lt;ptr1&gt;:	0x080486d0</span><br><span class="line">pwndbg&gt; x /50xb 0x080486d0</span><br><span class="line">0x80486d0:	0xdf	0xd8	0x8d	0xa3	0x18	0xac	0x86	0x8b</span><br><span class="line">0x80486d8:	0xa8	0x6e	0x76	0x24	0x4c	0x1d	0xcc	0xaf</span><br><span class="line">0x80486e0:	0x4a	0x73	0x5e	0x24	0xdc	0xd5	0xa7	0x00</span><br><span class="line">0x80486e8:	0x96	0x8b	0xca	0xd8	0x72	0xf9	0xe8	0xc0</span><br><span class="line">0x80486f0:	0xf7	0x0d	0x46	0x40	0x29	0x42	0xa2	0x9f</span><br><span class="line">0x80486f8:	0x3e	0x2c	0x34	0x71	0xb2	0x9e	0xda	0x00</span><br><span class="line">0x8048700:	0x67	0x65</span><br></pre></td></tr></table></figure></p>
+<p>最终的结果应该是这两个地方的值异或了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a1=[0x96,0x8b    ,0xca,    0xd8,    0x72,    0xf9,    0xe8,    0xc0,0xf7,    0x0d,    0x46,    0x40,    0x29,    0x42,    0xa2,    0x9f,0x3e,    0x2c,    0x34,    0x71,    0xb2,    0x9e,    0xda]</span><br><span class="line">a2=[0xdf,    0xd8,    0x8d,    0xa3,    0x18,    0xac,    0x86,    0x8b,0xa8,    0x6e,    0x76,    0x24,    0x4c,    0x1d,    0xcc,    0xaf,0x4a,    0x73,    0x5e,    0x24,    0xdc,    0xd5,    0xa7]</span><br><span class="line"></span><br><span class="line">flag=&quot;&quot;</span><br><span class="line">for i in range(len(a1)):</span><br><span class="line">    flag+=chr(a1[i]^a2[i])</span><br><span class="line">print flag</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>babynote</strong><br><a href="https://tower111.github.io/2018/08/30/ISG-babynote/" target="_blank" rel="noopener">https://tower111.github.io/2018/08/30/ISG-babynote/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/02/ISG/" data-id="cjlkb7auw00006il3qbbql4al" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/01/hose-of-lore/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hose of lore</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="/" class="logo">Tower</a>
+      &copy; 2018 tower<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollLoading.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -79,7 +79,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -89,6 +89,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/09/02/ISG/">ISG</a>
+          </li>
         
           <li>
             <a href="/2018/09/01/hose-of-lore/">hose of lore</a>
@@ -106,10 +110,6 @@
             <a href="/2018/08/28/FILE结构/">FILE结构</a>
           </li>
         
-          <li>
-            <a href="/2018/08/26/网鼎杯-教育/">网鼎杯-教育</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -119,7 +119,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆攻击模型/">堆攻击模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧，堆溢出，总结/">技巧，堆溢出，总结</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆攻击模型/">堆攻击模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧，堆溢出，总结/">技巧，堆溢出，总结</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -152,6 +152,57 @@
         
         <section id="main">
   
+    <article id="post-ISG" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/02/ISG/" class="article-date">
+  <time datetime="2018-09-02T02:07:24.000Z" itemprop="datePublished">2018-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/02/ISG/">ISG</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>题目链接<br><a href="https://github.com/tower111/software" target="_blank" rel="noopener">https://github.com/tower111/software</a><br><strong>junkcode</strong></p>
+<p>查看check函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; disassemble check</span><br><span class="line">Dump of assembler code for function check:</span><br><span class="line">   0x080484fb &lt;+0&gt;:	push   ebp</span><br><span class="line">   0x080484fc &lt;+1&gt;:	mov    ebp,esp</span><br><span class="line">   0x080484fe &lt;+3&gt;:	sub    esp,0x18</span><br><span class="line">   0x08048501 &lt;+6&gt;:	mov    eax,ds:0x804a02c</span><br><span class="line">   0x08048506 &lt;+11&gt;:	sub    esp,0xc</span><br><span class="line">   0x08048509 &lt;+14&gt;:	push   eax</span><br><span class="line">   0x0804850a &lt;+15&gt;:	call   0x80483d0 &lt;strlen@plt&gt;</span><br><span class="line">   0x0804850f &lt;+20&gt;:	add    esp,0x10</span><br><span class="line">   0x08048512 &lt;+23&gt;:	mov    DWORD PTR [ebp-0xc],eax</span><br><span class="line">   0x08048515 &lt;+26&gt;:	sub    esp,0xc</span><br><span class="line">   0x08048518 &lt;+29&gt;:	push   DWORD PTR [ebp+0x8]</span><br><span class="line">   0x0804851b &lt;+32&gt;:	call   0x80483d0 &lt;strlen@plt&gt;</span><br><span class="line">   0x08048520 &lt;+37&gt;:	add    esp,0x10</span><br><span class="line">   0x08048523 &lt;+40&gt;:	mov    edx,eax</span><br><span class="line">   0x08048525 &lt;+42&gt;:	mov    eax,DWORD PTR [ebp-0xc]</span><br><span class="line">   0x08048528 &lt;+45&gt;:	cmp    edx,eax              #这里校验长度</span><br><span class="line">   0x0804852a &lt;+47&gt;:	jae    0x8048533 &lt;check+56&gt;</span><br><span class="line">   0x0804852c &lt;+49&gt;:	mov    eax,0x0</span><br><span class="line">   0x08048531 &lt;+54&gt;:	jmp    0x8048581 &lt;check+134&gt;</span><br><span class="line">   0x08048533 &lt;+56&gt;:	mov    DWORD PTR [ebp-0x10],0x0</span><br><span class="line">   0x0804853a &lt;+63&gt;:	jmp    0x8048574 &lt;check+121&gt;</span><br><span class="line">   0x0804853c &lt;+65&gt;:	mov    edx,DWORD PTR [ebp-0x10]</span><br><span class="line">   0x0804853f &lt;+68&gt;:	mov    eax,DWORD PTR [ebp+0x8]</span><br><span class="line">   0x08048542 &lt;+71&gt;:	add    eax,edx</span><br><span class="line">=&gt; 0x08048544 &lt;+73&gt;:	sub    eax,0x158b08b6</span><br><span class="line">   0x08048549 &lt;+78&gt;:	sub    al,0xa0</span><br><span class="line">   0x0804854b &lt;+80&gt;:	add    al,0x8</span><br><span class="line">   0x0804854d &lt;+82&gt;:	mov    eax,DWORD PTR [ebp-0x10]</span><br><span class="line">   0x08048550 &lt;+85&gt;:	add    eax,edx</span><br><span class="line">   0x08048552 &lt;+87&gt;:	movzx  eax,BYTE PTR [eax]</span><br><span class="line">   0x08048555 &lt;+90&gt;:	xor    ecx,eax</span><br><span class="line">   0x08048557 &lt;+92&gt;:	mov    edx,DWORD PTR ds:0x804a030</span><br><span class="line">   0x0804855d &lt;+98&gt;:	mov    eax,DWORD PTR [ebp-0x10]</span><br><span class="line">   0x08048560 &lt;+101&gt;:	add    eax,edx</span><br><span class="line">   0x08048562 &lt;+103&gt;:	movzx  eax,BYTE PTR [eax]</span><br><span class="line">   0x08048565 &lt;+106&gt;:	cmp    cl,al                                #这里进行字符校验</span><br><span class="line">   0x08048567 &lt;+108&gt;:	je     0x8048570 &lt;check+117&gt;</span><br><span class="line">   0x08048569 &lt;+110&gt;:	mov    eax,0x0</span><br><span class="line">   0x0804856e &lt;+115&gt;:	jmp    0x8048581 &lt;check+134&gt;</span><br><span class="line">   0x08048570 &lt;+117&gt;:	add    DWORD PTR [ebp-0x10],0x1</span><br><span class="line">   0x08048574 &lt;+121&gt;:	mov    eax,DWORD PTR [ebp-0x10]</span><br><span class="line">   0x08048577 &lt;+124&gt;:	cmp    eax,DWORD PTR [ebp-0xc]</span><br><span class="line">   0x0804857a &lt;+127&gt;:	jl     0x804853c &lt;check+65&gt;</span><br><span class="line">   0x0804857c &lt;+129&gt;:	mov    eax,0x1</span><br><span class="line">   0x08048581 &lt;+134&gt;:	leave  </span><br><span class="line">   0x08048582 &lt;+135&gt;:	ret</span><br></pre></td></tr></table></figure>
+<p>断在长度比较处确定字符长度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EAX  0x17</span><br><span class="line">EBX  0x0</span><br><span class="line">ECX  0x320c</span><br><span class="line">EDX  0x8</span><br></pre></td></tr></table></figure></p>
+<p>0x17长度为23</p>
+<p>接下来查看al和cl的值<br>先找al<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   0x08048557 &lt;+92&gt;:	mov    edx,DWORD PTR ds:0x804a030</span><br><span class="line">   0x0804855d &lt;+98&gt;:	mov    eax,DWORD PTR [ebp-0x10]</span><br><span class="line">=&gt; 0x08048560 &lt;+101&gt;:	and    edx,eax</span><br><span class="line">   0x08048562 &lt;+103&gt;:	movzx  eax,BYTE PTR [eax]</span><br><span class="line">   0x08048565 &lt;+106&gt;:	cmp    cl,al</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> EAX  0x0</span><br><span class="line"> EBX  0x0</span><br><span class="line"> ECX  0xbe</span><br><span class="line"> EDX  0x80486e8 ◂— xchg   eax, esi /* 0xd8ca8b96 */</span><br><span class="line"> EDI  0x0</span><br><span class="line"> ESI  0xf7fa7000 (_GLOBAL_OFFSET_TABLE_) ◂— 0x1d7d6c</span><br><span class="line"> EBP  0xffffce18 —▸ 0xffffce78 ◂— 0x0</span><br><span class="line"> ESP  0xffffce00 —▸ 0xffffce78 ◂— 0x0</span><br><span class="line"> EIP  0x8048560 (check+101) ◂— and    edx, eax /* 0xb60fd023 */</span><br><span class="line">──────────────────────────────────────────────────────────────────────────────────────────[ DISASM ]──────────────────────────────────────────────────────────────────────────────────────────</span><br><span class="line"> ► 0x8048560 &lt;check+101&gt;    and    edx, eax</span><br></pre></td></tr></table></figure>
+<p>eax是计数器，edx是基地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x /50xb $edx</span><br><span class="line">0x80486e8:	0x96	0x8b	0xca	0xd8	0x72	0xf9	0xe8	0xc0</span><br><span class="line">0x80486f0:	0xf7	0x0d	0x46	0x40	0x29	0x42	0xa2	0x9f</span><br><span class="line">0x80486f8:	0x3e	0x2c	0x34	0x71	0xb2	0x9e	0xda	0x00</span><br><span class="line">0x8048700:	0x67	0x65	0x74	0x20	0x6d	0x65	0x20	0x66</span><br><span class="line">0x8048708:	0x6c	0x61	0x67	0x3a	0x00	0x47	0x4f	0x4f</span><br><span class="line">0x8048710:	0x44	0x00	0x42	0x41	0x44	0x00	0x00	0x00</span><br><span class="line">0x8048718:	0x01	0x1b</span><br></pre></td></tr></table></figure></p>
+<p>前32位就是al<br>cl跟al的操作方法类似<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0x08048547 &lt;+76&gt;:	mov    edx,DWORD PTR ds:0x804a02c</span><br><span class="line">0x0804854d &lt;+82&gt;:	mov    eax,DWORD PTR [ebp-0x10]</span><br><span class="line">0x08048550 &lt;+85&gt;:	add    eax,edx</span><br><span class="line">0x08048552 &lt;+87&gt;:	movzx  eax,BYTE PTR [eax]</span><br><span class="line">0x08048555 &lt;+90&gt;:	xor    ecx,eax</span><br></pre></td></tr></table></figure></p>
+<p>可以猜测，这里的ecx是输入的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x /xw 0x804a02c</span><br><span class="line">0x804a02c &lt;ptr1&gt;:	0x080486d0</span><br><span class="line">pwndbg&gt; x /50xb 0x080486d0</span><br><span class="line">0x80486d0:	0xdf	0xd8	0x8d	0xa3	0x18	0xac	0x86	0x8b</span><br><span class="line">0x80486d8:	0xa8	0x6e	0x76	0x24	0x4c	0x1d	0xcc	0xaf</span><br><span class="line">0x80486e0:	0x4a	0x73	0x5e	0x24	0xdc	0xd5	0xa7	0x00</span><br><span class="line">0x80486e8:	0x96	0x8b	0xca	0xd8	0x72	0xf9	0xe8	0xc0</span><br><span class="line">0x80486f0:	0xf7	0x0d	0x46	0x40	0x29	0x42	0xa2	0x9f</span><br><span class="line">0x80486f8:	0x3e	0x2c	0x34	0x71	0xb2	0x9e	0xda	0x00</span><br><span class="line">0x8048700:	0x67	0x65</span><br></pre></td></tr></table></figure></p>
+<p>最终的结果应该是这两个地方的值异或了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a1=[0x96,0x8b    ,0xca,    0xd8,    0x72,    0xf9,    0xe8,    0xc0,0xf7,    0x0d,    0x46,    0x40,    0x29,    0x42,    0xa2,    0x9f,0x3e,    0x2c,    0x34,    0x71,    0xb2,    0x9e,    0xda]</span><br><span class="line">a2=[0xdf,    0xd8,    0x8d,    0xa3,    0x18,    0xac,    0x86,    0x8b,0xa8,    0x6e,    0x76,    0x24,    0x4c,    0x1d,    0xcc,    0xaf,0x4a,    0x73,    0x5e,    0x24,    0xdc,    0xd5,    0xa7]</span><br><span class="line"></span><br><span class="line">flag=&quot;&quot;</span><br><span class="line">for i in range(len(a1)):</span><br><span class="line">    flag+=chr(a1[i]^a2[i])</span><br><span class="line">print flag</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>babynote</strong><br><a href="https://tower111.github.io/2018/08/30/ISG-babynote/" target="_blank" rel="noopener">https://tower111.github.io/2018/08/30/ISG-babynote/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/02/ISG/" data-id="cjlkb7auw00006il3qbbql4al" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hose-of-lore" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/09/01/hose-of-lore/" class="article-date">
@@ -177,11 +228,12 @@
         <p>参考：<a href="https://ctf-wiki.github.io/ctf-wiki/pwn/heap/house_of_lore/" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/pwn/heap/house_of_lore/</a></p>
 <p>申请内存块在small bin范围（从unsort bin中申请）<br>主要注意2点：<br>1.<code>if ((victim = last(bin)) != bin)</code>检验初始化，想要实现攻击需要向已经初始化的victim中写入fd。<br>2.<code>if (__glibc_unlikely(bck-&gt;fd != victim))</code>glibc会首先取出vitctim_chunk的下一个chunk(victim_back)检查victim_back-&gt;fd==victim_chunk。</p>
 <p><img src="http://i1.bvimg.com/659021/83ddc80adeda487b.png" alt="攻击图解"></p>
+<p>从上述介绍中可知知道想要利用host of lore需要：1.uaf漏洞，对bk写入数据。2.世道victim的地址(也就是堆地址，可以通过uaf漏洞获取)。3.被攻击的区域必须能够写入数据（就是只能对一段空间可使用的范围扩展）。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/01/hose-of-lore/" data-id="cjljbdkm20005dql3nrbr8qhs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/01/hose-of-lore/" data-id="cjlkb7aw9000e6il3g8feffg6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/堆攻击模型/">堆攻击模型</a></li></ul>
@@ -244,7 +296,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/31/堆中获取地址和劫持执行流的方法/" data-id="cjljbdkm50009dql3bi64eo8m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/31/堆中获取地址和劫持执行流的方法/" data-id="cjlkb7aw6000b6il3r7eegazh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技巧，堆溢出，总结/">技巧，堆溢出，总结</a></li></ul>
@@ -299,7 +351,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/30/ISG-babynote/" data-id="cjljbdkm00003dql38sqafjwx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/30/ISG-babynote/" data-id="cjlkb7awe000m6il327gmd9p8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a></li></ul>
@@ -346,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/28/FILE结构/" data-id="cjljbdklu0000dql3iuljya27" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/28/FILE结构/" data-id="cjlkb7av300016il3uybv85cr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
@@ -427,7 +479,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/26/网鼎杯-教育/" data-id="cjljbdkma000fdql3w9dyz8h0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/26/网鼎杯-教育/" data-id="cjlkb7awb000g6il3s9e12r1k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li></ul>
@@ -480,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/26/极客巅峰/" data-id="cjljbdkm7000bdql3fnu29b2f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/26/极客巅峰/" data-id="cjlkb7aw8000c6il3xg6o1zol" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li></ul>
@@ -563,7 +615,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/" data-id="cjljbdklx0001dql3ff482ekw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/House-Of-Einherjar-2016-Seccon-tinypad/" data-id="cjlkb7av700036il3quft983p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a></li></ul>
@@ -609,7 +661,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/21/通用gatget/" data-id="cjljbdkmc000hdql3wk9lx2xl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/21/通用gatget/" data-id="cjlkb7awc000h6il3gl5169pe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -652,52 +704,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/21/rop32/" data-id="cjljbdkm40008dql3wriiil81" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-free" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/21/free/" class="article-date">
-  <time datetime="2018-08-21T09:07:04.000Z" itemprop="datePublished">2018-08-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/21/free/">free</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##关于free函数对堆的操作<br>释放堆的全部内容如下<br><img src="http://i4.bvimg.com/659021/ddd11f567342a352.png" alt=""></p>
-<p>Glibc内存管理中介绍了free的过程不过有一点他是这样说的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">判断 chunk 的大小和所处的位置,若 chunk_size &lt;= max_fast,并且 chunk 并不位于</span><br><span class="line">heap 的顶部,也就是说并不与 top chunk 相邻,则转到下一步,否则跳到第 6 步。</span><br><span class="line">(因为与 top chunk 相邻的小 chunk 也和 top chunk 进行合并,所以这里不仅需要</span><br><span class="line">判断大小,还需要判断相邻情况)</span><br></pre></td></tr></table></figure></p>
-<p>但是实际跟出来的对fast bin的操作有一些改动测试机是ubuntu16<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">add(0x100,&quot;A&quot;*0x10)</span><br><span class="line">add(0x70,&quot;B&quot;*0x21)</span><br><span class="line">delete(2)</span><br><span class="line">delete(1)</span><br><span class="line">gdb.attach(p)</span><br></pre></td></tr></table></figure></p>
-<p>跟出来的结果是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gef➤ heap chunks</span><br><span class="line">Chunk(addr=0x1ffd010, size=0x110, flags=PREV_INUSE)</span><br><span class="line">[0x0000000001ffd010 78 fb 34 36 78 7f 00 00 78 fb 34 36 78 7f 00 00 x.46x...x.46x...]</span><br><span class="line">Chunk(addr=0x1ffd120, size=0x80, flags=)</span><br><span class="line">[0x0000000001ffd120 00 00 00 00 00 00 00 00 42 42 42 42 42 42 42 42 ........BBBBBBBB]</span><br></pre></td></tr></table></figure></p>
-<p>可以看出来2个chunk都还在，0x70的chunk在free的时候并没有跟topchunk进行合并。</p>
-<p>这里面有一个问题如果是这种结构的chunk</p>
-<p><img src="http://i4.bvimg.com/659021/c46c1f4ed3c6aa62.png" alt=""></p>
-<p>当free small chunk的时候fast chunk和small chunk是会合并的。</p>
-<p>邮箱：<a href="mailto:362058670@qq.com" target="_blank" rel="noopener">362058670@qq.com</a>能帮我解决问题或者有疑问欢迎联系。<br>qq: 362058670</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/21/free/" data-id="cjljbdkm10004dql3nqt07py3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/21/rop32/" data-id="cjlkb7av900046il3pkrqk507" class="article-share-link">Share</a>
       
       
     </footer>

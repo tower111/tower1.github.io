@@ -14,7 +14,7 @@
 <meta property="og:description" content="参考：https://ctf-wiki.github.io/ctf-wiki/pwn/heap/house_of_lore/ 申请内存块在small bin范围（从unsort bin中申请）主要注意2点：1.if ((victim = last(bin)) != bin)检验初始化，想要实现攻击需要向已经初始化的victim中写入fd。2.if (__glibc_unlikely(bck-&amp;gt">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://i1.bvimg.com/659021/83ddc80adeda487b.png">
-<meta property="og:updated_time" content="2018-09-01T10:58:23.322Z">
+<meta property="og:updated_time" content="2018-09-01T11:06:05.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hose of lore">
 <meta name="twitter:description" content="参考：https://ctf-wiki.github.io/ctf-wiki/pwn/heap/house_of_lore/ 申请内存块在small bin范围（从unsort bin中申请）主要注意2点：1.if ((victim = last(bin)) != bin)检验初始化，想要实现攻击需要向已经初始化的victim中写入fd。2.if (__glibc_unlikely(bck-&amp;gt">
@@ -83,7 +83,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -93,6 +93,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/09/02/ISG/">ISG</a>
+          </li>
         
           <li>
             <a href="/2018/09/01/hose-of-lore/">hose of lore</a>
@@ -110,10 +114,6 @@
             <a href="/2018/08/28/FILE结构/">FILE结构</a>
           </li>
         
-          <li>
-            <a href="/2018/08/26/网鼎杯-教育/">网鼎杯-教育</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -123,7 +123,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆攻击模型/">堆攻击模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧，堆溢出，总结/">技巧，堆溢出，总结</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆攻击模型/">堆攻击模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧，堆溢出，总结/">技巧，堆溢出，总结</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -179,11 +179,12 @@
         <p>参考：<a href="https://ctf-wiki.github.io/ctf-wiki/pwn/heap/house_of_lore/" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/pwn/heap/house_of_lore/</a></p>
 <p>申请内存块在small bin范围（从unsort bin中申请）<br>主要注意2点：<br>1.<code>if ((victim = last(bin)) != bin)</code>检验初始化，想要实现攻击需要向已经初始化的victim中写入fd。<br>2.<code>if (__glibc_unlikely(bck-&gt;fd != victim))</code>glibc会首先取出vitctim_chunk的下一个chunk(victim_back)检查victim_back-&gt;fd==victim_chunk。</p>
 <p><img src="http://i1.bvimg.com/659021/83ddc80adeda487b.png" alt="攻击图解"></p>
+<p>从上述介绍中可知知道想要利用host of lore需要：1.uaf漏洞，对bk写入数据。2.世道victim的地址(也就是堆地址，可以通过uaf漏洞获取)。3.被攻击的区域必须能够写入数据（就是只能对一段空间可使用的范围扩展）。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/01/hose-of-lore/" data-id="cjljbdkm20005dql3nrbr8qhs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/01/hose-of-lore/" data-id="cjlkb7aw9000e6il3g8feffg6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/堆攻击模型/">堆攻击模型</a></li></ul>
@@ -193,6 +194,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/09/02/ISG/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ISG
+        
+      </div>
+    </a>
   
   
     <a href="/2018/08/31/堆中获取地址和劫持执行流的方法/" id="article-nav-older" class="article-nav-link-wrap">
